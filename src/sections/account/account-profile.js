@@ -11,10 +11,10 @@ import {
 
 const user = {
   avatar: '/assets/avatars/avatar-anika-visser.png',
-  city: 'Los Angeles',
+  city: 'Poleveda Main Building',
   country: 'USA',
-  jobTitle: 'Senior Developer',
-  name: 'Anika Visser',
+  jobTitle: 'Pediatrician',
+  name: 'Pamela Earl',
   timezone: 'GTM-7'
 };
 

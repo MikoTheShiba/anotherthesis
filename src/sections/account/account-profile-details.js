@@ -32,12 +32,12 @@ const states = [
 
 export const AccountProfileDetails = () => {
   const [values, setValues] = useState({
-    firstName: 'Anika',
-    lastName: 'Visser',
-    email: 'demo@devias.io',
-    phone: '',
-    state: 'los-angeles',
-    country: 'USA'
+    clnNam: "Poleveda Elementary Clinic",
+    clnAdr: "3141 Poleveda Main, Hydrogen Lane, Mendel City, Lung Nation",
+    clnCon: "+633141592653",
+    docNam: "Pamela Earl",
+    docLic: "92713270812",
+    docPTR: "77128754"
   });
 
   const handleChange = useCallback(
@@ -81,11 +81,11 @@ export const AccountProfileDetails = () => {
                 <TextField
                   fullWidth
                   helperText="Please specify the first name"
-                  label="First name"
-                  name="firstName"
+                  label="Clinic Name"
+                  name="clnNam"
                   onChange={handleChange}
                   required
-                  value={values.firstName}
+                  value={values.clnNam}
                 />
               </Grid>
               <Grid
@@ -94,11 +94,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Last name"
-                  name="lastName"
+                  label="Clinic Address"
+                  name="clnAdr"
                   onChange={handleChange}
                   required
-                  value={values.lastName}
+                  value={values.clnAdr}
                 />
               </Grid>
               <Grid
@@ -107,11 +107,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Email Address"
-                  name="email"
+                  label="Clinic Contact"
+                  name="clnCon"
                   onChange={handleChange}
                   required
-                  value={values.email}
+                  value={values.clnCon}
                 />
               </Grid>
               <Grid
@@ -120,11 +120,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Phone Number"
-                  name="phone"
+                  label="Doctor's Name"
+                  name="docNam"
                   onChange={handleChange}
-                  type="number"
-                  value={values.phone}
+                  required
+                  value={values.docNam}
                 />
               </Grid>
               <Grid
@@ -133,11 +133,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Country"
-                  name="country"
+                  label="Medical License Number"
+                  name="docLic"
                   onChange={handleChange}
                   required
-                  value={values.country}
+                  value={values.docLic}
                 />
               </Grid>
               <Grid
@@ -146,23 +146,12 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Select State"
-                  name="state"
+                  label="Doc PTR"
+                  name="docPTR"
                   onChange={handleChange}
                   required
-                  select
-                  SelectProps={{ native: true }}
-                  value={values.state}
-                >
-                  {states.map((option) => (
-                    <option
-                      key={option.value}
-                      value={option.value}
-                    >
-                      {option.label}
-                    </option>
-                  ))}
-                </TextField>
+                  value={values.docPTR}
+                />
               </Grid>
             </Grid>
           </Box>
@@ -177,3 +166,31 @@ export const AccountProfileDetails = () => {
     </form>
   );
 };
+/*<TextField
+                  fullWidth
+                  label="Doctor's Name"
+                  name="docNam"
+                  onChange={handleChange}
+                  type="number"
+                  value={values.docNam}
+                />*/
+
+/*<TextField
+                  fullWidth
+                  label="Select State"
+                  name="docPTR"
+                  onChange={handleChange}
+                  required
+                  select
+                  SelectProps={{ native: true }}
+                  value={values.docPTR}
+                >
+                  {states.map((option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </TextField>*/
