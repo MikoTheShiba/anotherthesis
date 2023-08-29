@@ -1,0 +1,268 @@
+{
+    "010101": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Astorvastatin FC",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010102": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Ator-10",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010103": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Lipitor",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010104": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"RiteMed Atorvastatin",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010105": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Atonamis",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010106": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Brelvastin", 
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010107": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Astorvastatin FC",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010108": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Atorwin",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010109": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Ator-40",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010110": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Atorvast-Natrapharm",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010111": {
+        "ill":"Cholesterol",
+        "gen":"Astorvastatin FC",
+        "brd":"Brelvastin",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010201": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Rosuvastatin FC",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010202": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Rovista",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010203": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Rovista",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010204": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Rosutin",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010205": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Rosuvastatin FC",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010206": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Rovista",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "010207": {
+        "ill":"Cholesterol",
+        "gen":"Rosuvastatin FC",
+        "brd":"Vestflo-20",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020101": {
+        "ill":"Anti-Hypertension",
+        "gen":"Losartan",
+        "brd":"Losartan",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020102": {
+        "ill":"Anti-Hypertension",
+        "gen":"Losartan",
+        "brd":"Amlife",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020103": {
+        "ill":"Anti-Hypertension",
+        "gen":"Losartan",
+        "brd":"Neosartan",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020104": {
+        "ill":"Anti-Hypertension",
+        "gen":"Losartan",
+        "brd":"Lifezar",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020105": {
+        "ill":"Anti-Hypertension",
+        "gen":"Losartan",
+        "brd":"Losaar-50",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020106": {
+        "ill":"Anti-Hypertension",
+        "gen":"Losartan",
+        "brd":"Angisartan",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020201": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"Amlodipine Bestilate",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020202": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"Eodipine",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020203": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"Lodi",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020204": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"RiteMed Amlodipine",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020205": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"Amyasc BE",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020206": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"Vasalat",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020207": {
+        "ill":"Anti-Hypertension",
+        "gen":"Amlodipine Bestilate",
+        "brd":"Amlodipine",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020301": {
+        "ill":"Anti-Hypertension",
+        "gen":"Carvedilol FC (Betadol)",
+        "brd":"Carvedilol FC (Betadol)",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020302": {
+        "ill":"Anti-Hypertension",
+        "gen":"Carvedilol FC (Betadol)",
+        "brd":"Karyil",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020303": {
+        "ill":"Anti-Hypertension",
+        "gen":"Carvedilol FC (Betadol)",
+        "brd":"Caryid",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020304": {
+        "ill":"Anti-Hypertension",
+        "gen":"Carvedilol FC (Betadol)",
+        "brd":"Karyidol",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020305": {
+        "ill":"Anti-Hypertension",
+        "gen":"Carvedilol FC (Betadol)",
+        "brd":"Carvedilol",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020306": {
+        "ill":"Anti-Hypertension",
+        "gen":"Carvedilol FC (Betadol)",
+        "brd":"Velon",
+        "dos":"20mg",
+        "SRP":9
+    },
+    "020401": {
+        "ill":"Anti-Hypertension",
+        "gen":"Clopidoger",
+        "brd":"Clopidoger",
+        "dos":"20mg",
+        "SRP":9
+    }
+}
