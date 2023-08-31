@@ -38,7 +38,7 @@ export const items = [
   },
   {
     title: 'Patient History',
-    path: '/customers',
+    path: '/patients',
     icon: (
       <SvgIcon fontSize="small">
         <UsersIcon />

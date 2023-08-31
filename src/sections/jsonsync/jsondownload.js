@@ -1,6 +1,4 @@
 import { useCallback, useState } from 'react';
-import mimsdata from '../../jsons/mimsdb.json';
-import pathis from '../../jsons/pathis.json';
 import {
   Box,
   Button,
@@ -15,7 +13,23 @@ import {
   Typography
 } from '@mui/material';
 import { styled } from '@mui/system';
-export const Jsonupload = () => {
+export const Jsondownload = () => {
+  async function mimsdl() {
+    //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
+    const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json");
+    const mimres = await response.json();
+    console.log(mimres);
+    return JSON.stringify(mimres, null, 2)
+  }
+  async function patsdl() {
+    //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
+    const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json");
+    const patres = await response.json();
+    console.log(patres);
+    return JSON.stringify(patres, null, 2);
+  }
+  var fbase_mims = mimsdl();
+  var fbase_pats = patsdl();
   const handleChange = useCallback(
     (event) => {
       setValues((prevState) => ({
@@ -50,7 +64,7 @@ export const Jsonupload = () => {
       <Card>
         <CardHeader
           subheader="Sync data to the Firebase"
-          title="UPLOAD"
+          title="DOWNLOAD"
         />
         <CardContent sx={{ pt: 0 }}>
           <Box sx={{ m: -1.5 }}>
@@ -68,7 +82,7 @@ export const Jsonupload = () => {
               <Grid xs={12} sm={12} lg={8} xl={8}>
                 <StyledTextarea
                   maxRows={4}
-                  defaultValue={JSON.stringify(mimsdata, null, 2)}
+                  defaultValue={fbase_mims}
                 />
               </Grid>
               <Grid xs={12} sm={12} lg={4} xl={4}>
@@ -81,7 +95,7 @@ export const Jsonupload = () => {
               <Grid xs={12} sm={12} lg={8} xl={8}>
                 <StyledTextarea
                   maxRows={4}
-                  defaultValue={JSON.stringify(pathis, null, 2)}
+                  defaultValue={fbase_pats}
                 />
               </Grid>
             </Grid>

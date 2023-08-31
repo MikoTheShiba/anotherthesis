@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { Jsonupload } from 'src/sections/jsonsync/jsonupload';
-//import { jsondownload } from 'src/sections/jsonsync/jsondownload';
+import { Jsondownload } from 'src/sections/jsonsync/jsondownload';
 
 const Page = () => (
   <>
@@ -42,7 +42,7 @@ const Page = () => (
                 md={6}
                 lg={6}
               >
-                <jsonupload />
+                <Jsondownload />
               </Grid>
             </Grid>
           </div>
