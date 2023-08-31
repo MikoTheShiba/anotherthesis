@@ -6,8 +6,9 @@ import UserIcon from '@heroicons/react/24/solid/UserIcon';
 import UserPlusIcon from '@heroicons/react/24/solid/UserPlusIcon';
 import UsersIcon from '@heroicons/react/24/solid/UsersIcon';
 import XCircleIcon from '@heroicons/react/24/solid/XCircleIcon';
-import { SvgIcon } from '@mui/material';
 import ListBulletIcon from '@heroicons/react/24/solid/ListBulletIcon';
+import CloudIcon from '@heroicons/react/24/solid/CloudIcon';
+import { SvgIcon } from '@mui/material';
 
 export const items = [
   {
@@ -45,11 +46,11 @@ export const items = [
     )
   },
   {
-    title: 'Companies',
-    path: '/companies',
+    title: 'Sync',
+    path: '/jsonsync',
     icon: (
       <SvgIcon fontSize="small">
-        <ShoppingBagIcon />
+        <CloudIcon />
       </SvgIcon>
     )
   },

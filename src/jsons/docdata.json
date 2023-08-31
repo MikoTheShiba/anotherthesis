@@ -1,6 +1,11 @@
 {
     "ClnNam": "Poleveda Elementary Clinic",
-    "ClnAdr": "3141 Poleveda Main, Hydrogen Lane, Mendel City, Lung Nation",
+    "ClnAdr": {
+        "adr":"3141 Poleveda Main",
+        "adrstreet":"Hydrogen Street",
+        "adrcity":"Mendel City",
+        "adrcountry":"Lung Nation"
+    },
     "ClnCon": "+633141592653",
     "DocNam": "Pamela Earl",
     "DocLic": "92713270812",

@@ -156,13 +156,13 @@ const data = [
     phone: '801-301-7894'
   }
 ];
-async function logMovies() {
-  const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/010101.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
-  //const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
+async function mimsdl() {
+  //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
+  const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
   const movies = await response.json();
   console.log(movies);
 }
-logMovies();
+mimsdl();
 const useCustomers = (page, rowsPerPage) => {
   return useMemo(
     () => {
@@ -206,7 +206,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Customers | Devias Kit
+          MIMS Database
         </title>
       </Head>
       <Box
