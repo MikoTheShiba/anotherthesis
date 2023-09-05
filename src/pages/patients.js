@@ -7,12 +7,19 @@ import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import { Box, Button, Container, Stack, SvgIcon, Typography } from '@mui/material';
 import { useSelection } from 'src/hooks/use-selection';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { CustomersTable } from 'src/sections/customer/customers-table';
+import { PatientsTable } from 'src/sections/patients/patients-table';
 import { CustomersSearch } from 'src/sections/customer/customers-search';
 import { applyPagination } from 'src/utils/apply-pagination';
+import testdata from '../jsons/pathis.json';
 
 const now = new Date();
-
+const jsontoarray = (data) => {
+  var arrr= [];
+  var listing = Object.keys(data)
+  listing.map((x) => arrr.push(data[x]))
+  return arrr
+}
+const data = jsontoarray(testdata)
 async function mimsdl() {
   //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
   const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
@@ -44,7 +51,6 @@ const Page = () => {
   const customers = useCustomers(page, rowsPerPage);
   const customersIds = useCustomerIds(customers);
   const customersSelection = useSelection(customersIds);
-
   const handlePageChange = useCallback(
     (event, value) => {
       setPage(value);
@@ -125,7 +131,7 @@ const Page = () => {
               </div>
             </Stack>
             <CustomersSearch />
-            <CustomersTable
+            <PatientsTable
               count={data.length}
               items={customers}
               onDeselectAll={customersSelection.handleDeselectAll}
