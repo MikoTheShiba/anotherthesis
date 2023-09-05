@@ -8,7 +8,7 @@ import { Box, Button, Container, Stack, SvgIcon, Typography } from '@mui/materia
 import { useSelection } from 'src/hooks/use-selection';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { MimsTable } from 'src/sections/mims/mims-table';
-import { CustomersSearch } from 'src/sections/customer/customers-search';
+import { MimsSearch } from 'src/sections/mims/mims-search';
 import { applyPagination } from 'src/utils/apply-pagination';
 import testdata from '../jsons/mimsdb.json';
 
@@ -90,7 +90,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Customers
+                  MIMS DATABASE
                 </Typography>
                 <Stack
                   alignItems="center"
@@ -132,7 +132,7 @@ const Page = () => {
                 </Button>
               </div>
             </Stack>
-            <CustomersSearch />
+            <MimsSearch />
             <MimsTable
               count={data.length}
               items={customers}
