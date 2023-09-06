@@ -8,9 +8,11 @@ import {
   CardHeader,
   Divider,
   TextField,
+  Unstable_NumberInput as NumberInput,
+  NumberInputProps,
+  NumberInputClasses,
   Unstable_Grid2 as Grid
 } from '@mui/material';
-
 const states = [
   {
     value: 'alabama',
@@ -29,15 +31,19 @@ const states = [
     label: 'Los Angeles'
   }
 ];
-
-export const AccountProfileDetails = () => {
+export const PrescribeForm = () => {
   const [values, setValues] = useState({
-    clnNam: "Poleveda Elementary Clinic",
-    clnAdr: "3141 Poleveda Main, Hydrogen Lane, Mendel City, Lung Nation",
-    clnCon: "+633141592653",
-    docNam: "Pamela Earl",
-    docLic: "92713270812",
-    docPTR: "77128754"
+    det: {
+      nam: "",
+      dob: "",
+      age: "",
+      dat: ""},
+    prs: {
+      gen: "",
+      dos: "",
+      qty: 0,
+      ins: ""
+    }  
   });
 
   const handleChange = useCallback(
@@ -80,12 +86,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  helperText="Please specify the first name"
-                  label="Clinic Name"
-                  name="clnNam"
+                  label="Patient Name"
+                  name="det.nam"
                   onChange={handleChange}
                   required
-                  value={values.clnNam}
+                  value={values.det.nam}
                 />
               </Grid>
               <Grid
@@ -94,11 +99,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Clinic Address"
-                  name="clnAdr"
+                  label="Date of Birth"
+                  name="det.dob"
                   onChange={handleChange}
                   required
-                  value={values.clnAdr}
+                  value={values.det.dob}
                 />
               </Grid>
               <Grid
@@ -107,11 +112,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Clinic Contact"
-                  name="clnCon"
+                  label="Age"
+                  name="det.age"
                   onChange={handleChange}
                   required
-                  value={values.clnCon}
+                  value={values.det.age}
                 />
               </Grid>
               <Grid
@@ -120,11 +125,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Doctor's Name"
-                  name="docNam"
+                  label="Date"
+                  name="det.dat"
                   onChange={handleChange}
                   required
-                  value={values.docNam}
+                  value={values.det.dat}
                 />
               </Grid>
               <Grid
@@ -133,11 +138,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Medical License Number"
-                  name="docLic"
+                  label="Generic Name"
+                  name="prs.gen"
                   onChange={handleChange}
                   required
-                  value={values.docLic}
+                  value={values.prs.gen}
                 />
               </Grid>
               <Grid
@@ -146,11 +151,24 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Doc PTR"
-                  name="docPTR"
+                  label="Dosage"
+                  name="prs.dos"
                   onChange={handleChange}
                   required
-                  value={values.docPTR}
+                  value={values.prs.dos}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  label="Quantity"
+                  name="prs.qty"
+                  onChange={handleChange}
+                  required
+                  value={values.prs.qty}
                 />
               </Grid>
             </Grid>

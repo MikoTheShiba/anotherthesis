@@ -15,6 +15,15 @@ import {
   Typography
 } from '@mui/material';
 import { styled } from '@mui/system';
+
+
+async function patUp() {
+  const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json", {method: "PUT", body: JSON.stringify(pathis), headers: {"Content-type": "application/json; charset=UTF-8"}});
+  //const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
+  const movies = await response.json();
+  console.log(movies);
+}
+patUp();
 export const Jsonupload = () => {
   const handleChange = useCallback(
     (event) => {

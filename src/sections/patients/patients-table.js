@@ -102,23 +102,23 @@ export const PatientsTable = (props) => {
                     </TableCell>
                     <TableCell>
                       <Typography variant="subtitle2">
-                        {patients.details.nam}
+                        {patients.det.nam}
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      {patients.details.dob}
+                      {patients.det.dob}
                     </TableCell>
                     <TableCell>
-                      {patients.details.age}
+                      {patients.det.age}
                     </TableCell>
                     <TableCell>
-                      {patients.details.dat}
+                      {patients.det.dat}
                     </TableCell>
                     <TableCell>
-                      {patients.prescription.gen}
+                      {patients.prs.gen}
                     </TableCell>
                     <TableCell>
-                      {patients.prescription.dos}
+                      {patients.prs.dos}
                     </TableCell>
                     <TableCell>
                       {patients.qty}

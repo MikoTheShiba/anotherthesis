@@ -21,6 +21,13 @@ export const items = [
     )
   },
   {
+    title: 'Prescribe',
+    path: '/prescribe',
+    icon: (
+      <SvgIcon fontSize="small"><ListBulletIcon /></SvgIcon>
+    )
+  },
+  {
     title: 'Account',
     path: '/account',
     icon: (
