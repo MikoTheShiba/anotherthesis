@@ -10,15 +10,30 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { PatientsTable } from 'src/sections/patients/patients-table';
 import { CustomersSearch } from 'src/sections/customer/customers-search';
 import { applyPagination } from 'src/utils/apply-pagination';
-//import testdata from '../jsons/pathis.json';
+import testdata from '../jsons/pathis.json';
 
+
+//direct from Firebase
+/*async function pathisrobbery(){
+  const respo = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json");
+  const cum = await respo.json();
+  return cum;
+}
+const testdata = pathisrobbery();*/
+
+//download to pathis.json first
 async function pathisrobbery(){
   const respo = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json");
   const cum = await respo.json();
-  console.log(cum);
-  return cum;
+  const revenge = await fetch('src/jsons/pathis.json', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application-json'
+    },
+    body: JSON.stringify(cum)
+  }).then(response => console.log(response.status))
 }
-const testdata = pathisrobbery();
+pathisrobbery();
 
 const now = new Date();
 const jsontoarray = (data) => {
@@ -77,7 +92,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Customers | Devias Kit
+          Patient History | Devias Kit
         </title>
       </Head>
       <Box
@@ -96,7 +111,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Customers
+                  Patients
                 </Typography>
                 <Stack
                   alignItems="center"
