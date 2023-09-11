@@ -16,3 +16,9 @@
 >FUCK OFF. I JUST WANT TO ADD A SIMPLE NUMBER SELECT. IS THAT SO HARD??? (unironically, there seems to be the unstable version but fuck off with you and your string inputs)
 >note to self: either fix it or make a workaround
 >also add an instructions tab. ty
+
+**Sep 11, 10:43 AM**:
+>WHAT. THE. FUCK. MUI WORK WITH ME HERE.
+
+**Sep 11, 10:59**:
+>Got the POST setting to work. Tweak the dosage though. We might run into trouble

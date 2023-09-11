@@ -10,7 +10,15 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { PatientsTable } from 'src/sections/patients/patients-table';
 import { CustomersSearch } from 'src/sections/customer/customers-search';
 import { applyPagination } from 'src/utils/apply-pagination';
-import testdata from '../jsons/pathis.json';
+//import testdata from '../jsons/pathis.json';
+
+async function pathisrobbery(){
+  const respo = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json");
+  const cum = await respo.json();
+  console.log(cum);
+  return cum;
+}
+const testdata = pathisrobbery();
 
 const now = new Date();
 const jsontoarray = (data) => {

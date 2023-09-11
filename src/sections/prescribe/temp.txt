@@ -10,7 +10,6 @@ import {
   TextField,
   Unstable_Grid2 as Grid
 } from '@mui/material';
-import { CustomNumberInput as NumberInput } from 'src/components/CustomNumberInput';
 const states = [
   {
     value: 'alabama',
@@ -29,38 +28,42 @@ const states = [
     label: 'Los Angeles'
   }
 ];
-
 export const PrescribeForm = () => {
   const [values, setValues] = useState({
-    nam: "",
-    dob: "",
-    age: "",
-    dat: "",
-    gen: "",
-    dos: "",
-    qty: null,
-    ins: ""
-  })
-  const handleChange = (e) => {
-    setValues((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
-  }
-  const handleSubmit =
+    det: {
+      nam: "Cum",
+      dob: "",
+      age: "",
+      dat: ""},
+    prs: {
+      gen: "",
+      dos: "",
+      qty: null,
+      ins: ""
+    }
+  });
+
+  const handleChange = useCallback(
+    (event) => {
+      setValues((prevState) => ({
+        ...prevState,
+        [event.target.name]: event.target.value
+      }));
+    },
+    []
+  );
+
+  const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json", {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-    };
+    },
+    []
+  );
 
   return (
     <form
+      autoComplete="off"
+      noValidate
       onSubmit={handleSubmit}
     >
       <Card>
@@ -82,10 +85,10 @@ export const PrescribeForm = () => {
                   fullWidth
                   helperText="Please specify the first name"
                   label="Patient Name"
-                  name="nam"
+                  name="det.nam"
                   onChange={handleChange}
-                  
-                  value={values.nam}
+                  required
+                  value={values.det.nam}
                 />
               </Grid>
               <Grid
@@ -95,10 +98,9 @@ export const PrescribeForm = () => {
                 <TextField
                   fullWidth
                   label="Date of Birth"
-                  name="dob"
+                  name="det.dob"
                   onChange={handleChange}
-                  
-                  value={values.dob}
+                  value={values.det.dob}
                 />
               </Grid>
               <Grid
@@ -108,10 +110,10 @@ export const PrescribeForm = () => {
                 <TextField
                   fullWidth
                   label="Age"
-                  name="age"
+                  name="det.age"
                   onChange={handleChange}
-                  
-                  value={values.age}
+                  required
+                  value={values.det.age}
                 />
               </Grid>
               <Grid
@@ -121,10 +123,10 @@ export const PrescribeForm = () => {
                 <TextField
                   fullWidth
                   label="Date"
-                  name="dat"
+                  name="det.dat"
                   onChange={handleChange}
-                  
-                  value={values.dat}
+                  required
+                  value={values.det.dat}
                 />
               </Grid>
               <Grid
@@ -134,10 +136,10 @@ export const PrescribeForm = () => {
                 <TextField
                   fullWidth
                   label="Generic Name"
-                  name="gen"
+                  name="prs.gen"
                   onChange={handleChange}
-                  
-                  value={values.gen}
+                  required
+                  value={values.prs.gen}
                 />
               </Grid>
               <Grid
@@ -147,20 +149,20 @@ export const PrescribeForm = () => {
                 <TextField
                   fullWidth
                   label="Dosage"
-                  name="dos"
+                  name="prs.dos"
                   onChange={handleChange}
-                  value={values.dos}
+                  required
+                  value={values.prs.dos}
                 />
               </Grid>
               <Grid
                 xs={12}
                 md={6}
               >
-                <NumberInput
-                  name="qty"
+                <TextField
                   label="Quantity"
-                  placeholder="Quantity"
-                  value={values.qty}
+                  onChange={handleChange}
+                  value={values.prs.qty}
                 />
               </Grid>
             </Grid>
@@ -168,7 +170,7 @@ export const PrescribeForm = () => {
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
-          <Button variant="contained" type="submit">
+          <Button variant="contained">
             Save details
           </Button>
         </CardActions>
@@ -176,3 +178,31 @@ export const PrescribeForm = () => {
     </form>
   );
 };
+/*<TextField
+                  fullWidth
+                  label="Doctor's Name"
+                  name="docNam"
+                  onChange={handleChange}
+                  type="number"
+                  value={values.docNam}
+                />*/
+
+/*<TextField
+                  fullWidth
+                  label="Select State"
+                  name="docPTR"
+                  onChange={handleChange}
+                  required
+                  select
+                  SelectProps={{ native: true }}
+                  value={values.docPTR}
+                >
+                  {states.map((option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </TextField>*/
