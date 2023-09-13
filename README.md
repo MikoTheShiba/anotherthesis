@@ -22,3 +22,6 @@
 
 **Sep 11, 10:59**:
 >Got the POST setting to work. Tweak the dosage though. We might run into trouble
+
+**Sep 11, 11:47**
+>Note to self, ASYNC RENDER. ok bye

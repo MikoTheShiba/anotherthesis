@@ -81,7 +81,6 @@ export const PatientsTable = (props) => {
             <TableBody>
               {items.map((patients) => {
                 const isSelected = selected.includes(patients.id);
-                console.log(patients);
                 return (
                   <TableRow
                     hover

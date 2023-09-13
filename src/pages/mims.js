@@ -21,6 +21,10 @@ const jsontoarray = (data) => {
   return arrr
 }
 const data = jsontoarray(testdata)
+
+const tagbinder = (data) => {
+  
+}
 /* async function mimsdl() {
   //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
   const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
@@ -49,7 +53,7 @@ const useCustomerIds = (customers) => {
 const Page = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const customers = useCustomers(page, rowsPerPage);
+  const [customers, customerResults] = useState(useCustomers(page, rowsPerPage));
   const customersIds = useCustomerIds(customers);
   const customersSelection = useSelection(customersIds);
 
