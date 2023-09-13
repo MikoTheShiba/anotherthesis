@@ -331,17 +331,29 @@ const listToResult = (data) => {
     return fin
 }
 const listToResult_Binary = (data, list) => {
-    var fin = {}
-    var stuff = binarySearch(data, list)
+    var fin = {};
+    var sortedList = Object.keys(list).sort();
+    var stuff = binarySearch(data, sortedList)
     function finfill(x){
         fin[x]=testdata[x]
     }
-    stuff.map(finfill)
+    if (stuff!=0){
+        list[sortedList[stuff]].map(finfill)
+    }
+    else{
+        fin = {'000000':{
+            ill: 'no results found',
+            gen: 'no results found',
+            brd: 'no results found',
+            dos: 'no results found',
+            srp: 0,
+        }}
+    }
     return fin
 }
 async function main(x){
     var a = await searchTag(testdata)
-    console.log(listToResult(a[x]))
+    console.log(listToResult_Binary(x, a))
 }
 main('Cholesterol')
 
