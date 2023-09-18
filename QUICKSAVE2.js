@@ -353,6 +353,7 @@ const listToResult_Binary = (data, list) => {
 }
 async function main(x){
     var a = await searchTag(testdata)
+    console.log(a);
     console.log(listToResult_Binary(x, a))
 }
 main('Cholesterol')

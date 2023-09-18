@@ -66,14 +66,6 @@ const searchTag = (data) => {
   keylist.map(light)
   return searchlight
 }
-const listToResult = (data) => {
-  var fin = {}
-  function finfill(x){
-      fin[x]=testdata[x]
-  }
-  data.map(finfill);
-  return fin
-}
 const listToResult_Binary = (data, list) => {
   var fin = {};
   var sortedList = Object.keys(list).sort();
@@ -95,6 +87,8 @@ const listToResult_Binary = (data, list) => {
   }
   return fin
 }
+const tagbinder = searchTag(testdata);
+
 
 const jsontoarray = (data) => {
   var arrr= [];
@@ -102,11 +96,7 @@ const jsontoarray = (data) => {
   listing.map((x) => arrr.push(data[x]))
   return arrr
 }
-const data = jsontoarray(testdata)
 
-const tagbinder = (data) => {
-  
-}
 /* async function mimsdl() {
   //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
   const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
@@ -114,28 +104,30 @@ const tagbinder = (data) => {
   console.log(movies);
 }
 mimsdl(); */
-const useCustomers = (page, rowsPerPage) => {
-  return useMemo(
-    () => {
-      return applyPagination(data, page, rowsPerPage);
-    },
-    [page, rowsPerPage]
-  );
-};
-
-const useCustomerIds = (customers) => {
-  return useMemo(
-    () => {
-      return customers.map((customer) => customer.id);
-    },
-    [customers]
-  );
-};
 
 const Page = () => {
+  const [data, searchData] = useState(jsontoarray(testdata));
+  const useCustomers = (page, rowsPerPage) => {
+    return useMemo(
+      () => {
+        return applyPagination(data, page, rowsPerPage);
+      },
+      [page, rowsPerPage]
+    );
+  };
+  
+  const useCustomerIds = (customers) => {
+    return useMemo(
+      () => {
+        return customers.map((customer) => customer.id);
+      },
+      [customers]
+    );
+  };
+  
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [customers, customerResults] = useState(useCustomers(page, rowsPerPage));
+  const customers = useCustomers(page, rowsPerPage);
   const customersIds = useCustomerIds(customers);
   const customersSelection = useSelection(customersIds);
 
