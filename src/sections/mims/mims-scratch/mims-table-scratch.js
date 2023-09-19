@@ -17,7 +17,7 @@ import {
 import { Scrollbar } from 'src/components/scrollbar';
 import { getInitials } from 'src/utils/get-initials';
 
-export const MimsTableModified = (props) => {
+export const MimsTable = (props) => {
   const {
     count = 0,
     items = [],
@@ -29,8 +29,7 @@ export const MimsTableModified = (props) => {
     onSelectOne,
     page = 0,
     rowsPerPage = 0,
-    selected = [],
-    reshuffle,
+    selected = []
   } = props;
 
   const selectedSome = (selected.length > 0) && (selected.length < items.length);
@@ -76,6 +75,7 @@ export const MimsTableModified = (props) => {
             <TableBody>
               {items.map((mims) => {
                 const isSelected = selected.includes(mims.id);
+                console.log(mims);
                 return (
                   <TableRow
                     hover
@@ -85,7 +85,13 @@ export const MimsTableModified = (props) => {
                     <TableCell padding="checkbox">
                       <Checkbox
                         checked={isSelected}
-                        onChange={reshuffle}
+                        onChange={(event) => {
+                          if (event.target.checked) {
+                            onSelectOne?.(mims.id);
+                          } else {
+                            onDeselectOne?.(mims.id);
+                          }
+                        }}
                       />
                     </TableCell>
                     <TableCell>
@@ -125,7 +131,7 @@ export const MimsTableModified = (props) => {
   );
 };
 
-MimsTableModified.propTypes = {
+MimsTable.propTypes = {
   count: PropTypes.number,
   items: PropTypes.array,
   onDeselectAll: PropTypes.func,

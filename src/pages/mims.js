@@ -11,6 +11,7 @@ import { MimsTable } from 'src/sections/mims/mims-table';
 import { MimsSearch } from 'src/sections/mims/mims-search';
 import { applyPagination } from 'src/utils/apply-pagination';
 import testdata from '../jsons/mimsdb.json';
+import { MimsTableModified } from 'src/sections/mims/mims-table-modified';
 
 const now = new Date();
 
@@ -90,6 +91,8 @@ const listToResult_Binary = (data, list) => {
 const tagbinder = searchTag(testdata);
 
 
+
+
 const jsontoarray = (data) => {
   var arrr= [];
   var listing = Object.keys(data)
@@ -127,9 +130,9 @@ const Page = () => {
   
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const customers = useCustomers(page, rowsPerPage);
-  const customersIds = useCustomerIds(customers);
-  const customersSelection = useSelection(customersIds);
+  var customers = useCustomers(page, rowsPerPage);
+  var customersIds = useCustomerIds(customers);
+  var customersSelection = useSelection(customersIds);
 
   const handlePageChange = useCallback(
     (event, value) => {
@@ -144,7 +147,20 @@ const Page = () => {
     },
     []
   );
-
+  async function itemshuffletest() {
+    var n={'000000':{
+      ill: 'no results found',
+      gen: 'no results found',
+      brd: 'no results found',
+      dos: 'no results found',
+      srp: 0,
+    }}
+    searchData(jsontoarray(n));
+    console.log(data);
+    customers = useCustomers(page, rowsPerPage);
+    customersIds = useCustomerIds(customers);
+    customersSelection = useSelection(customersIds);
+  }
   return (
     <>
       <Head>
@@ -211,7 +227,7 @@ const Page = () => {
               </div>
             </Stack>
             <MimsSearch />
-            <MimsTable
+            <MimsTableModified
               count={data.length}
               items={customers}
               onDeselectAll={customersSelection.handleDeselectAll}
@@ -223,6 +239,7 @@ const Page = () => {
               page={page}
               rowsPerPage={rowsPerPage}
               selected={customersSelection.selected}
+              reshuffle={itemshuffletest}
             />
           </Stack>
         </Container>

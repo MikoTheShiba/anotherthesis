@@ -44,6 +44,13 @@ export const items = [
     )
   },
   {
+    title: 'MIMS-SCRATCH',
+    path: '/mims-scratch',
+    icon: (
+      <SvgIcon fontSize="small"><ListBulletIcon /></SvgIcon>
+    )
+  },
+  {
     title: 'Patient History',
     path: '/patients',
     icon: (

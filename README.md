@@ -25,3 +25,7 @@
 
 **Sep 11, 11:47**
 >Note to self, ASYNC RENDER. ok bye
+
+**Sep 18, 12:15**
+>FUCK IT WE DO IT FROM SCRATCH.
+>NOTE TO SELF. MODIFY MIMS. NOW.
