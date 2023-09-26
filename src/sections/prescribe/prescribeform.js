@@ -22,7 +22,8 @@ export const PrescribeForm = () => {
     gen: "",
     dos: "",
     qty: null,
-    ins: ""
+    ins: "",
+    email: ""
   })
   const handleChange = (e) => {
     setValues((prevState) => ({
@@ -40,7 +41,7 @@ export const PrescribeForm = () => {
           "Content-Type": "application/json"
         }
       });
-      sendMail("cum");
+      sendMail(values);
     };
 
   return (
@@ -140,11 +141,24 @@ export const PrescribeForm = () => {
                 xs={12}
                 md={6}
               >
-                <NumberInput
-                  name="qty"
+                <TextField
+                  fullWidth
                   label="Quantity"
-                  placeholder="Quantity"
+                  name="qty"
+                  onChange={handleChange}
                   value={values.qty}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  label="Email"
+                  name="email"
+                  onChange={handleChange}
+                  value={values.email}
                 />
               </Grid>
             </Grid>
@@ -160,3 +174,10 @@ export const PrescribeForm = () => {
     </form>
   );
 };
+
+/*<NumberInput
+                  name="qty"
+                  label="Quantity"
+                  placeholder="Quantity"
+                  value={values.qty}
+                />*/

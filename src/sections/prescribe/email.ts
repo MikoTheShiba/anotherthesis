@@ -3,13 +3,11 @@ import { SMTPClient } from "smtp-client";
 
 export const sendMail = (info) => {
     Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "mikoforbusinesspurposes@gmail.com",
-        Password : "F0F9E9A06F3A845F0BFE025BE273AFCA4770",
-        To : 'mikoangeles2001@gmail.com',
-        From : "mikoforbusinesspurposes@gmail.com",
-        Subject : "kill yourself",
-        Body : info
+        SecureToken: "6e2cb0ca-b3c6-476a-bbb5-0607bbb86fda",
+        To : info.email,
+        From : "mikoangeles2001@gmail.com",
+        Subject : "asndadshudashouadshadshads",
+        Body : info.gen + "" + info.dos + " localhost:3000/mims"
       }).then(
         message => alert(message)
       );
@@ -18,7 +16,7 @@ export const sendMail = (info) => {
 export const sendMailClient = () => {
     let s = new SMTPClient({
       host: "smtp.elasticemail.com",
-      port: 587
+      port: 2525
     });
   
     (async function () {
