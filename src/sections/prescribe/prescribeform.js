@@ -11,20 +11,7 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { CustomNumberInput as NumberInput } from 'src/components/CustomNumberInput';
-import nodemailer from 'nodemailer';
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'mikoforbusinesspurposes@gmail.com',
-    password: 'Raphael10!'
-  }
-});
-var details = {
-  from: 'mikoforbusinesspurposes@gmail.com',
-  to: 'mikoangeles2001@gmail.com',
-  subject: 'kill yourself',
-  text: 'you serve zero purpose. you should kill yourself NOW.'
-}
+import { sendMail, sendMailClient } from "./email";
 
 export const PrescribeForm = () => {
   const [values, setValues] = useState({
@@ -53,14 +40,7 @@ export const PrescribeForm = () => {
           "Content-Type": "application/json"
         }
       });
-      transporter.sendMail(details,(err)=>{
-        if(err){
-          console.log("oh shid it didnt send");
-        }
-        else{
-          console.log("mail sent successfully");
-        }
-      })
+      sendMail("cum");
     };
 
   return (

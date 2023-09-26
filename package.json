@@ -39,6 +39,7 @@
     "react-dom": "18.2.0",
     "react-router-dom": "^6.15.0",
     "simplebar-react": "^3.2.1",
+    "smtp-client": "^0.4.0",
     "yup": "1.0.0"
   },
   "devDependencies": {
