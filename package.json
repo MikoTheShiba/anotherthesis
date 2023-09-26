@@ -31,6 +31,7 @@
     "formik": "2.2.9",
     "fs": "^0.0.1-security",
     "next": "13.1.6",
+    "nodemailer": "^6.9.5",
     "nprogress": "0.2.0",
     "prop-types": "15.8.1",
     "react": "18.2.0",

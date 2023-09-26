@@ -5,6 +5,8 @@ import { AccountProfile } from 'src/sections/account/account-profile';
 import { AccountProfileDetails } from 'src/sections/account/account-profile-details';
 import { PrescribeForm } from 'src/sections/prescribe/prescribeform';
 
+
+
 const Page = () => (
   <>
     <Head>
