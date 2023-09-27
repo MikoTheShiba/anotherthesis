@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { CustomNumberInput as NumberInput } from 'src/components/CustomNumberInput';
 import { sendMail, sendMailClient } from "./email";
+import clinicdata from '../../jsons/docdata.json'
 
 export const PrescribeForm = () => {
   const [values, setValues] = useState({
@@ -41,7 +42,7 @@ export const PrescribeForm = () => {
           "Content-Type": "application/json"
         }
       });
-      sendMail(values);
+      sendMail(values, clinicdata);
     };
 
   return (

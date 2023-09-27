@@ -1,17 +1,65 @@
 import { Email } from './smtp';
 import { SMTPClient } from "smtp-client";
 
-export const sendMail = (info) => {
+export const sendMail = (info, clinicdata) => {
     Email.send({
         SecureToken: "6e2cb0ca-b3c6-476a-bbb5-0607bbb86fda",
         To : info.email,
         From : "mikoangeles2001@gmail.com",
         Subject : "asndadshudashouadshadshads",
-        Body : info.gen + "" + info.dos + " localhost:3000/mims"
+        Body : EmailFormat(info,clinicdata)
       }).then(
         message => alert(message)
       );
 }
+
+const EmailFormat = (info, clinicdata) => {
+  let thebodieshitthefloor = `
+  <center><h1><b>${clinicdata.ClnNam}</b></h1></center>
+  <center><h3><b>${clinicdata.ClnAdr.adr + " "+ clinicdata.ClnAdr.adrstreet + " " + clinicdata.ClnAdr.adrcity + " " + clinicdata.ClnAdr.adrcountry}</b></h3></center>
+  <center><h3><b>${clinicdata.ClnCon}</b></h3></center>
+  <div class="float-container">
+      <div style="float:left">
+        <h4>${info.nam}</h4>
+        <h4>${info.dob}</h4>
+        <br><br><br><br>
+        <h1 style="float:left">RX</h1>
+      </div>
+      <div style="float:right">
+        <h4>${info.age}</h4>
+        <h4>${info.dat}</h4>
+        <br><br><br><br><br><br>
+        <h4>${clinicdata.DocNam}</h4>
+        <h4>${clinicdata.DocLic}</h4>
+        <h4>${clinicdata.DocPTR}</h4>
+      </div>
+  </div>
+  <center>
+      <div>
+          <br><br><br><br><br><br><br><br><br><br><br><br>
+          <table style="border: 1px solid black; border-collapse:collapse">
+              <tr style="border: 1px solid black">
+                  <th style="border: 1px solid black">Generic Name</th>
+                  <th style="border: 1px solid black">Dosage</th>
+                  <th style="border: 1px solid black">Quantity</th>
+                  <th style="border: 1px solid black">Instructions</th>
+              </tr>
+              <tr style="border: 1px solid black">
+                  <td style="border: 1px solid black">${info.gen}</td>
+                  <td style="border: 1px solid black">${info.dos}</td>
+                  <td style="border: 1px solid black">${info.qty}</td>
+                  <td style="border: 1px solid black">Drink Very Slowly and Tastefully</td>
+              </tr>
+          </table>
+          <div style="float:right">
+              
+          </div>
+      </div>
+  </center>
+  `
+  return thebodieshitthefloor                                                                                                                                                                                                                                                                                                                                                                                                                               
+}
+
 
 export const sendMailClient = () => {
     let s = new SMTPClient({

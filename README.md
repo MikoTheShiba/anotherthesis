@@ -29,3 +29,6 @@
 **Sep 18, 12:15**
 >FUCK IT WE DO IT FROM SCRATCH.
 >NOTE TO SELF. MODIFY MIMS. NOW.
+
+**Sep 27, 0:35**
+>yay
