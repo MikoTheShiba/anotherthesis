@@ -5,7 +5,7 @@ export const sendMail = (info, clinicdata) => {
     Email.send({
         SecureToken: "6e2cb0ca-b3c6-476a-bbb5-0607bbb86fda",
         To : info.email,
-        From : "mikoangeles2001@gmail.com",
+        From : "mikoforbusinesspurposes@gmail.com",
         Subject : "asndadshudashouadshadshads",
         Body : EmailFormat(info,clinicdata)
       }).then(
