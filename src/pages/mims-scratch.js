@@ -7,11 +7,8 @@ import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import { Box, Button, Container, Stack, SvgIcon, Typography } from '@mui/material';
 import { useSelection } from 'src/hooks/use-selection';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { MimsTable } from 'src/sections/mims/mims-table';
-import { MimsSearch } from 'src/sections/mims/mims-search';
 import { applyPagination } from 'src/utils/apply-pagination';
 import testdata from '../jsons/mimsdb.json';
-import { MimsTableModified } from 'src/sections/mims/mims-table-modified';
 import Search from 'src/sections/mims/mims-scratch/mims-search-scratch';
 
 const now = new Date();

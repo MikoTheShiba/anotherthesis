@@ -37,14 +37,7 @@ export const items = [
     )
   },
   {
-    title: 'MIMS DATABASE',
-    path: '/mims',
-    icon: (
-      <SvgIcon fontSize="small"><ListBulletIcon /></SvgIcon>
-    )
-  },
-  {
-    title: 'MIMS-SCRATCH',
+    title: 'MIMS-DATABASE',
     path: '/mims-scratch',
     icon: (
       <SvgIcon fontSize="small"><ListBulletIcon /></SvgIcon>
