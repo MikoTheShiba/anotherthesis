@@ -11,8 +11,20 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { CustomNumberInput as NumberInput } from 'src/components/CustomNumberInput';
-import { sendMail, sendMailClient } from "./email";
+import { sendMail, sendMailClient } from "./emailjs";
 import clinicdata from '../../jsons/docdata.json'
+import Search from 'src/sections/prescribe/mims-scratch/mims-search-scratch';
+import testdata from 'src/jsons/mimsdb.json';
+const jsontoarraywithid = (data) => {
+  var arrr= [];
+  var listing = Object.keys(data)
+  listing.map((x) => arrr.push(data[x]))
+  for (let i = 0; i < arrr.length; i++){
+      arrr[i]["id"]=parseInt(listing[i])
+  }
+  return arrr
+}
+const jtadata = jsontoarraywithid(testdata);
 
 export const PrescribeForm = () => {
   const [values, setValues] = useState({
@@ -26,6 +38,7 @@ export const PrescribeForm = () => {
     ins: "",
     email: ""
   })
+  const [selectedMeds, setSelect] = useState([]);
   const handleChange = (e) => {
     setValues((prevState) => ({
       ...prevState,
@@ -42,7 +55,7 @@ export const PrescribeForm = () => {
           "Content-Type": "application/json"
         }
       });
-      sendMail(values, clinicdata);
+      sendMail(values, clinicdata, selectedMeds, testdata);
     };
 
   return (
@@ -164,6 +177,7 @@ export const PrescribeForm = () => {
               </Grid>
             </Grid>
           </Box>
+          <Search details={jtadata} setSelect={setSelect}/>
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>

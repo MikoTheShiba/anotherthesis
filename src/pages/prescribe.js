@@ -7,7 +7,6 @@ import { PrescribeForm } from 'src/sections/prescribe/prescribeform';
 import Search from 'src/sections/prescribe/mims-scratch/mims-search-scratch';
 
 
-
 const Page = () => (
   <>
     <Head>

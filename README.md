@@ -32,3 +32,7 @@
 
 **Sep 27, 0:35**
 >yay
+
+**Sep 29, 1:08**
+>note to self, remove the disappearing medicine. Thank you.
+>also remember. Aria is your best friend. Do not forget that it's too useful of a tool

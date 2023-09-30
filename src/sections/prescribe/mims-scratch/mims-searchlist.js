@@ -11,8 +11,17 @@ const columns = [
   {field: 'srp', headerName: 'SRP'}
 ]
 
-function SearchList({ filteredMeds }) {
+function SearchList({ filteredMeds, setSelect }) {
   //const filtered = filteredPersons.map( person =>  <Card key={person.id} person={person} />);
+  const [selectedItems, setSelectedItems] = React.useState([]);
+  React.useEffect(() => {
+    console.log(selectedItems);
+  });
+  const handleSelectionChange = async (selection) => {
+    await setSelectedItems(selection);
+    await setSelect(selection);
+    console.log("selection: " + selection);
+  };
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
@@ -28,6 +37,7 @@ function SearchList({ filteredMeds }) {
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
+        onRowSelectionModelChange={handleSelectionChange}
       />
     </Box>
   );

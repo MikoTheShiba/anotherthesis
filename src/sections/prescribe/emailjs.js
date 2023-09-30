@@ -1,6 +1,5 @@
 import { Email } from './smtp';
 import { SMTPClient } from "smtp-client";
-import 'src/jsons/mimsdb.json';
 
 export const sendMail = (info, clinicdata, selectedMeds, mimsdb) => {
     Email.send({
@@ -17,14 +16,17 @@ export const sendMail = (info, clinicdata, selectedMeds, mimsdb) => {
 const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
   const tablegenerator = (id) => {
     console.log(id);
-    console.log(mimsdb.$id);
+    let xd = String(id);
+    console.log(xd);
+    console.log(mimsdb[xd]);
+    console.log(mimsdb);
     return `
       <tr style="border: 1px solid black">
-      <td style="border: 1px solid black">${mimsdb[id].ill}</td>
-      <td style="border: 1px solid black">${mimsdb[id]['gen']}</td>
-      <td style="border: 1px solid black">${mimsdb[id]['dos']}</td>
-      <td style="border: 1px solid black">${mimsdb[id]['qty']}</td>
-      <td style="border: 1px solid black">${mimsdb[id]['srp']}</td>
+      <td style="border: 1px solid black">${mimsdb[xd]['ill']}</td>
+      <td style="border: 1px solid black">${mimsdb[xd]['gen']}</td>
+      <td style="border: 1px solid black">${mimsdb[xd]['dos']}</td>
+      <td style="border: 1px solid black">${mimsdb[xd]['qty']}</td>
+      <td style="border: 1px solid black">${mimsdb[xd]['srp']}</td>
       </tr>
     `
   }
