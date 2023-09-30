@@ -1,4 +1,4 @@
-import { Email } from './smtp';
+import { Email } from '../../../src/sections/prescribe/smtp';
 import { SMTPClient } from "smtp-client";
 import 'src/jsons/mimsdb.json';
 
@@ -61,7 +61,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
                   <th style="border: 1px solid black">Generic Name</th>
                   <th style="border: 1px solid black">Dosage</th>
                   <th style="border: 1px solid black">Quantity</th>
-                  <th style="border: 1px solid black">Instructions</th>
+                  <th style="border: 1px solid black">SRP</th>
               </tr>
               ${dctable(selectedMeds)}
           </table>

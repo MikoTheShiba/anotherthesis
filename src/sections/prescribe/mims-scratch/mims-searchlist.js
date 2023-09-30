@@ -8,7 +8,7 @@ const columns = [
   {field: 'gen', headerName: 'Generic Name'},
   {field: 'brd', headerName: 'Brand'},
   {field: 'dos', headerName: 'Dosage'},
-  {field: 'srp', headerName: 'SRP'}
+  {field: 'SRP', headerName: 'SRP'}
 ]
 
 function SearchList({ filteredMeds, setSelect }) {

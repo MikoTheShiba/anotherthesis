@@ -15,24 +15,33 @@ export const sendMail = (info, clinicdata, selectedMeds, mimsdb) => {
 
 const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
   const tablegenerator = (id) => {
-    console.log(id);
     let xd = String(id);
-    console.log(xd);
-    console.log(mimsdb[xd]);
-    console.log(mimsdb);
     return `
       <tr style="border: 1px solid black">
       <td style="border: 1px solid black">${mimsdb[xd]['ill']}</td>
       <td style="border: 1px solid black">${mimsdb[xd]['gen']}</td>
       <td style="border: 1px solid black">${mimsdb[xd]['dos']}</td>
-      <td style="border: 1px solid black">${mimsdb[xd]['qty']}</td>
-      <td style="border: 1px solid black">${mimsdb[xd]['srp']}</td>
+      <td style="border: 1px solid black">${String(mimsdb[xd]['SRP'])}</td>
       </tr>
     `
   }
+  const altgetter = (genlist) => {
+    let alts = [];
+    genlist.map((x) => {let fdb = Object.entries(mimsdb).filter(([key,obj]) => obj.gen === x); let fin=alts.concat(fdb); alts=fin;})
+    return alts.map(([key, obj]) => key);
+  }
   const dctable = (medlist) => {
     let td = medlist.map(tablegenerator);
-    return `${td}`
+    let finalstring = ``;
+    td.map((x) => finalstring=finalstring+x);
+    return finalstring;
+  }
+  const datable = (medlist) => {
+    let genlist = []
+    let finalstring = ``;
+    medlist.map((x) => {let n = mimsdb[String(x)]['gen']; if(genlist.indexOf(n) == -1){genlist.push(n)}});
+    altgetter(genlist).map((x) => finalstring=finalstring+tablegenerator(x))
+    return finalstring;
   }
   let thebodieshitthefloor = `
   <center><h1><b>${clinicdata.ClnNam}</b></h1></center>
@@ -57,17 +66,28 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
   <center>
       <div>
           <br><br><br><br><br><br><br><br><br><br><br><br>
+          <h2>PRESCRIBED MEDS</h2>
           <table style="border: 1px solid black; border-collapse:collapse">
               <tr style="border: 1px solid black">
                   <th style="border: 1px solid black">Illness</th>
                   <th style="border: 1px solid black">Generic Name</th>
                   <th style="border: 1px solid black">Dosage</th>
-                  <th style="border: 1px solid black">Quantity</th>
-                  <th style="border: 1px solid black">Instructions</th>
+                  <th style="border: 1px solid black">SRP</th>
               </tr>
               ${dctable(selectedMeds)}
           </table>
-          <h4>${selectedMeds}</h4>
+          <h4>${info.ins}</h4>
+          <br><br>
+          <h2>ALTERNATIVES LIST</h2>
+          <table style="border: 1px solid black; border-collapse:collapse">
+              <tr style="border: 1px solid black">
+                  <th style="border: 1px solid black">Illness</th>
+                  <th style="border: 1px solid black">Generic Name</th>
+                  <th style="border: 1px solid black">Dosage</th>
+                  <th style="border: 1px solid black">SRP</th>
+              </tr>
+              ${datable(selectedMeds)}
+          </table>
           <div style="float:right">
               
           </div>

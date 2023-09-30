@@ -1,264 +1,264 @@
 {
-    "010101": {
+    "0": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Astorvastatin FC",
         "dos":"20mg",
         "SRP":9
     },
-    "010102": {
+    "1": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Ator-10",
         "dos":"10mg",
         "SRP":12.75
     },
-    "010103": {
+    "2": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Lipitor",
         "dos":"10mg",
         "SRP":34.25
     },
-    "010104": {
+    "3": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"RiteMed Atorvastatin",
         "dos":"10mg",
         "SRP":12
     },
-    "010105": {
+    "4": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Atonamis",
         "dos":"20mg",
         "SRP":4.5
     },
-    "010106": {
+    "5": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Brelvastin", 
         "dos":"20mg",
         "SRP":5.5
     },
-    "010107": {
+    "6": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Astorvastatin FC",
         "dos":"40mg",
         "SRP":9.5
     },
-    "010108": {
+    "7": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Atorwin",
         "dos":"40mg",
         "SRP":47.75
     },
-    "010109": {
+    "8": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Ator-40",
         "dos":"40mg",
         "SRP":26
     },
-    "010110": {
+    "9": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Atorvast-Natrapharm",
         "dos":"40mg",
         "SRP":22
     },
-    "010111": {
+    "10": {
         "ill":"Cholesterol",
         "gen":"Astorvastatin FC",
         "brd":"Brelvastin",
         "dos":"40mg",
         "SRP":9.5
     },
-    "010201": {
+    "11": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Rosuvastatin FC",
         "dos":"10mg",
         "SRP":9
     },
-    "010202": {
+    "12": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Rovista",
         "dos":"5mg",
         "SRP":23.25
     },
-    "010203": {
+    "13": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Rovista",
         "dos":"10mg",
         "SRP":28.75
     },
-    "010204": {
+    "14": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Rosutin",
         "dos":"10mg",
         "SRP":12.75
     },
-    "010205": {
+    "15": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Rosuvastatin FC",
         "dos":"20mg",
         "SRP":15.5
     },
-    "010206": {
+    "16": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Rovista",
         "dos":"20mg",
         "SRP":33
     },
-    "010207": {
+    "17": {
         "ill":"Cholesterol",
         "gen":"Rosuvastatin FC",
         "brd":"Vestflo-20",
         "dos":"20mg",
         "SRP":17.75
     },
-    "020101": {
+    "18": {
         "ill":"Anti-Hypertension",
         "gen":"Losartan",
         "brd":"Losartan",
         "dos":"50mg",
         "SRP":2.75
     },
-    "020102": {
+    "19": {
         "ill":"Anti-Hypertension",
         "gen":"Losartan",
         "brd":"Amlife",
         "dos":"50mg",
         "SRP":23.5
     },
-    "020103": {
+    "20": {
         "ill":"Anti-Hypertension",
         "gen":"Losartan",
         "brd":"Neosartan",
         "dos":"50mg",
         "SRP":13.5
     },
-    "020104": {
+    "21": {
         "ill":"Anti-Hypertension",
         "gen":"Losartan",
         "brd":"Lifezar",
         "dos":"50mg",
         "SRP":26.5
     },
-    "020105": {
+    "22": {
         "ill":"Anti-Hypertension",
         "gen":"Losartan",
         "brd":"Losaar-50",
         "dos":"50mg",
         "SRP":4
     },
-    "020106": {
+    "23": {
         "ill":"Anti-Hypertension",
         "gen":"Losartan",
         "brd":"Angisartan",
         "dos":"50mg",
         "SRP":4
     },
-    "020201": {
+    "24": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"Amlodipine Bestilate",
         "dos":"5mg",
         "SRP":1
     },
-    "020202": {
+    "25": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"Eodipine",
         "dos":"5mg",
         "SRP":2.5
     },
-    "020203": {
+    "26": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"Lodi",
         "dos":"5mg",
         "SRP":8.25
     },
-    "020204": {
+    "27": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"RiteMed Amlodipine",
         "dos":"5mg",
         "SRP":6.75
     },
-    "020205": {
+    "28": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"Amyasc BE",
         "dos":"5mg",
         "SRP":19.75
     },
-    "020206": {
+    "29": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"Vasalat",
         "dos":"5mg",
         "SRP":13.5
     },
-    "020207": {
+    "30": {
         "ill":"Anti-Hypertension",
         "gen":"Amlodipine Bestilate",
         "brd":"Amlodipine",
         "dos":"5mg",
         "SRP":2.5
     },
-    "020301": {
+    "31": {
         "ill":"Anti-Hypertension",
         "gen":"Carvedilol FC (Betadol)",
         "brd":"Carvedilol FC (Betadol)",
         "dos":"6.5mg",
         "SRP":4.5
     },
-    "020302": {
+    "32": {
         "ill":"Anti-Hypertension",
         "gen":"Carvedilol FC (Betadol)",
         "brd":"Karyil",
         "dos":"6.5mg",
         "SRP":9.75
     },
-    "020303": {
+    "33": {
         "ill":"Anti-Hypertension",
         "gen":"Carvedilol FC (Betadol)",
         "brd":"Caryid",
         "dos":"6.5mg",
         "SRP":12
     },
-    "020304": {
+    "34": {
         "ill":"Anti-Hypertension",
         "gen":"Carvedilol FC (Betadol)",
         "brd":"Karyidol",
         "dos":"25mg",
         "SRP":8.25
     },
-    "020305": {
+    "35": {
         "ill":"Anti-Hypertension",
         "gen":"Carvedilol FC (Betadol)",
         "brd":"Carvedilol",
         "dos":"6.25mg",
         "SRP":6
     },
-    "020306": {
+    "36": {
         "ill":"Anti-Hypertension",
         "gen":"Carvedilol FC (Betadol)",
         "brd":"Velon",
         "dos":"6.25mg",
         "SRP":5
     },
-    "020401": {
+    "37": {
         "ill":"Anti-Hypertension",
         "gen":"Clopidoger",
         "brd":"Clopidoger",

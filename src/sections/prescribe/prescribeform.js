@@ -32,9 +32,6 @@ export const PrescribeForm = () => {
     dob: "",
     age: "",
     dat: "",
-    gen: "",
-    dos: "",
-    qty: null,
     ins: "",
     email: ""
   })
@@ -132,47 +129,22 @@ export const PrescribeForm = () => {
               >
                 <TextField
                   fullWidth
-                  label="Generic Name"
-                  name="gen"
-                  onChange={handleChange}
-                  
-                  value={values.gen}
-                />
-              </Grid>
-              <Grid
-                xs={12}
-                md={6}
-              >
-                <TextField
-                  fullWidth
-                  label="Dosage"
-                  name="dos"
-                  onChange={handleChange}
-                  value={values.dos}
-                />
-              </Grid>
-              <Grid
-                xs={12}
-                md={6}
-              >
-                <TextField
-                  fullWidth
-                  label="Quantity"
-                  name="qty"
-                  onChange={handleChange}
-                  value={values.qty}
-                />
-              </Grid>
-              <Grid
-                xs={12}
-                md={6}
-              >
-                <TextField
-                  fullWidth
                   label="Email"
                   name="email"
                   onChange={handleChange}
                   value={values.email}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={12}
+              >
+                <TextField
+                  fullWidth
+                  label="Instructions"
+                  name="ins"
+                  onChange={handleChange}
+                  value={values.ins}
                 />
               </Grid>
             </Grid>
