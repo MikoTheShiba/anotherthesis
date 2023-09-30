@@ -23,7 +23,14 @@ async function patUp() {
   const movies = await response.json();
   console.log(movies);
 }
+async function mimUp() {
+  const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(mimsdata), headers: {"Content-type": "application/json; charset=UTF-8"}});
+  //const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
+  const movies = await response.json();
+  console.log(movies);
+}
 patUp();
+mimUp();
 export const Jsonupload = () => {
   const handleChange = useCallback(
     (event) => {

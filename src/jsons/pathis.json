@@ -1,12 +1,10 @@
 {
-    "testsubjectzero":{
+    "01":{
         "nam":"Albrecht Entrati",
         "dob":"January 12, 1999",
         "age":24,
         "dat":"September 1, 2023",
-        "gen":"Astorvastatin FC",
-        "dos":"10mg",
-        "qty":3,
+        "prs":[1,13],
         "ins":"kill yourself"
         }
 }

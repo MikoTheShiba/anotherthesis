@@ -18,10 +18,11 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
     let xd = String(id);
     return `
       <tr style="border: 1px solid black">
-      <td style="border: 1px solid black">${mimsdb[xd]['ill']}</td>
-      <td style="border: 1px solid black">${mimsdb[xd]['gen']}</td>
-      <td style="border: 1px solid black">${mimsdb[xd]['dos']}</td>
-      <td style="border: 1px solid black">${String(mimsdb[xd]['SRP'])}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['brd']}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['ill']}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['gen']}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['dos']}</td>
+        <td style="border: 1px solid black">${String(mimsdb[xd]['SRP'])}</td>
       </tr>
     `
   }
@@ -49,18 +50,15 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
   <center><h3><b>${clinicdata.ClnCon}</b></h3></center>
   <div class="float-container">
       <div style="float:left">
-        <h4>${info.nam}</h4>
-        <h4>${info.dob}</h4>
+        <h4>Patient Name: ${info.nam}</h4>
+        <h4>Date of Birth: ${info.dob}</h4>
         <br><br><br><br>
         <h1 style="float:left">RX</h1>
       </div>
       <div style="float:right">
-        <h4>${info.age}</h4>
-        <h4>${info.dat}</h4>
+        <h4>Patient Age: ${info.age}</h4>
+        <h4>Date: ${info.dat}</h4>
         <br><br><br><br><br><br>
-        <h4>${clinicdata.DocNam}</h4>
-        <h4>${clinicdata.DocLic}</h4>
-        <h4>${clinicdata.DocPTR}</h4>
       </div>
   </div>
   <center>
@@ -89,7 +87,9 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
               ${datable(selectedMeds)}
           </table>
           <div style="float:right">
-              
+            <h4>${clinicdata.DocNam}</h4>
+            <h4>${clinicdata.DocLic}</h4>
+            <h4>${clinicdata.DocPTR}</h4>
           </div>
       </div>
   </center>

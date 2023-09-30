@@ -45,7 +45,7 @@ export const items = [
   },
   {
     title: 'Patient History',
-    path: '/patients',
+    path: '/patients-scratch',
     icon: (
       <SvgIcon fontSize="small">
         <UsersIcon />

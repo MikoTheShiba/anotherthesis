@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 import Head from 'next/head';
 import { subDays, subHours } from 'date-fns';
 import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
@@ -10,7 +10,7 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { PatientsTable } from 'src/sections/patients/patients-table';
 import { CustomersSearch } from 'src/sections/customer/customers-search';
 import { applyPagination } from 'src/utils/apply-pagination';
-import testdata from '../jsons/pathis.json';
+//import testdata from '../jsons/pathis.json';
 
 //direct from Firebase
 /* async function pathisrobbery(){
@@ -19,6 +19,7 @@ import testdata from '../jsons/pathis.json';
   return cum;
 }
 const testdata = pathisrobbery(); */
+
 const searchTag = (data) => {
   var searchlight = {};
   var keylist = Object.keys(data);
@@ -51,7 +52,7 @@ const searchTag = (data) => {
   keylist.map(light)
   return searchlight
 }
-var searchables = searchTag(testdata);
+
 const now = new Date();
 const jsontoarray = (data) => {
   var arrr= [];
@@ -59,22 +60,9 @@ const jsontoarray = (data) => {
   listing.map((x) => arrr.push(data[x]))
   return arrr
 }
-const data = jsontoarray(testdata)
-/*async function mimsdl() {
-  //const response = await fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json", {method: "PUT", body: JSON.stringify(testdata), headers: {"Content-type": "application/json; charset=UTF-8"}}).then(fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json"));
-  const response = await fetch("https://hureyjsonprac-default-rtdb.firebaseio.com/client/C001.json");
-  const movies = await response.json();
-  console.log(movies);
-}*/
 
-const useCustomers = (page, rowsPerPage) => {
-  return useMemo(
-    () => {
-      return applyPagination(data, page, rowsPerPage);
-    },
-    [page, rowsPerPage]
-  );
-};
+
+
 
 const useCustomerIds = (customers) => {
   return useMemo(
@@ -88,23 +76,49 @@ const useCustomerIds = (customers) => {
 const Page = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [customers, customerResults] = useState(useCustomers(page, rowsPerPage));
-  const customersIds = useCustomerIds(customers);
-  const customersSelection = useSelection(customersIds);
+  
+  
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState(null);
+    useEffect(() => {
+      fetchData();
+    }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json');
+      const rdata = await response.json();
+      setData(jsonarray(rdata));
+      setIsLoading(false);
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
   const handlePageChange = useCallback(
     (event, value) => {
       setPage(value);
     },
     []
   );
-
+  const useCustomers = (page, rowsPerPage) => {
+    return useMemo(
+      () => {
+        return applyPagination(data, page, rowsPerPage);
+      },
+      [page, rowsPerPage]
+    );
+  };
+  const [customers, customerResults] = useState(useCustomers(page, rowsPerPage));
+  const customersIds = useCustomerIds(customers);
+  const customersSelection = useSelection(customersIds);
   const handleRowsPerPageChange = useCallback(
     (event) => {
       setRowsPerPage(event.target.value);
     },
     []
   );
-    
+  if (isLoading) {
+    return <div>LOADING</div>
+  }
   return (
     <>
       <Head>
