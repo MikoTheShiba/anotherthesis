@@ -94,12 +94,12 @@ const jsontoarray = (data) => {
   listing.map((x) => arrr.push(data[x]))
   return arrr
 }
-const jsontoarraywithid = (data) => {
+const jsontoarraywithidnoparseint = (data) => {
     var arrr= [];
     var listing = Object.keys(data)
     listing.map((x) => arrr.push(data[x]))
     for (let i = 0; i < arrr.length; i++){
-        arrr[i]["id"]=parseInt(listing[i])
+        arrr[i]["id"]=listing[i]
     }
     return arrr
   }
@@ -113,7 +113,7 @@ const Page = () => {
     try {
       const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json');
       const data = await response.json();
-      setData(jsontoarraywithid(data));
+      setData(jsontoarraywithidnoparseint(data));
       setIsLoading(false);
     } catch (error) {
       console.log('Error:', error);

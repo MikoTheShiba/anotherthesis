@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -24,7 +24,6 @@ const jsontoarraywithid = (data) => {
   }
   return arrr
 }
-const jtadata = jsontoarraywithid(testdata);
 
 export const PrescribeForm = () => {
   const [values, setValues] = useState({
@@ -36,6 +35,13 @@ export const PrescribeForm = () => {
     email: ""
   })
   const [selectedMeds, setSelect] = useState([]);
+  const [jtadata, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const gengen = (medlist) => {
+    let genlist = []
+    medlist.map((x) => {let n = jtadata[String(x)]['gen']; if(genlist.indexOf(n) == -1){genlist.push(n)}});
+    return genlist
+  }
   const handleChange = (e) => {
     setValues((prevState) => ({
       ...prevState,
@@ -47,14 +53,30 @@ export const PrescribeForm = () => {
       event.preventDefault();
       fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json", {
         method: "POST",
-        body: JSON.stringify(values),
+        body: JSON.stringify(Object.assign({}, values, { "prs":gengen(selectedMeds) })),
         headers: {
           "Content-Type": "application/json"
         }
       });
       sendMail(values, clinicdata, selectedMeds, testdata);
     };
-
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
+      const data = await response.json();
+      setData(jsontoarraywithid(data));
+      setIsLoading(false);
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <form
       onSubmit={handleSubmit}
@@ -154,7 +176,7 @@ export const PrescribeForm = () => {
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
           <Button variant="contained" type="submit">
-            Save details
+            PRESCRIBE!
           </Button>
         </CardActions>
       </Card>

@@ -51,8 +51,9 @@ export const items = [
         <UsersIcon />
       </SvgIcon>
     )
-  },
-  {
+  }
+];
+/*{
     title: 'Sync',
     path: '/jsonsync',
     icon: (
@@ -96,5 +97,4 @@ export const items = [
         <XCircleIcon />
       </SvgIcon>
     )
-  }
-];
+  }*/

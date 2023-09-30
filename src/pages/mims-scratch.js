@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 import Head from 'next/head';
 import { subDays, subHours } from 'date-fns';
 import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
@@ -103,8 +103,25 @@ const jsontoarraywithid = (data) => {
     }
     return arrr
   }
-const jtadata = jsontoarraywithid(testdata);
 const Page = () => {
+  const [jtadata, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
+      const data = await response.json();
+      setData(jsontoarraywithid(data));
+      setIsLoading(false);
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
         <Head>

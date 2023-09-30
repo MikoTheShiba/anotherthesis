@@ -8,7 +8,8 @@ const columns = [
   {field: 'dob', headerName: 'Birthday'},
   {field: 'age', headerName: 'Age'},
   {field: 'dat', headerName: 'Date'},
-  {field: 'prs', headerName: 'Medlist'}
+  {field: 'prs', headerName: 'Medlist'},
+  {field: 'email', headerName: 'email'}
 ]
 
 function SearchList({ filteredPats }) {

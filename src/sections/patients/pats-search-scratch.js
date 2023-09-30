@@ -48,7 +48,7 @@ function Search({ details }) {
   return (
     <section className="garamond">
 			<div className="navy georgia ma0 grow">
-				<h2 className="f2">Search for your med</h2>
+				<h2 className="f2">Patient History</h2>
 			</div>
 			<div className="pa2">
 				<input
