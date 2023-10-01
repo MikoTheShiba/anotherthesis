@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import { CustomNumberInput as NumberInput } from 'src/components/CustomNumberInput';
 import { sendMail, sendMailClient } from "./emailjs";
-import clinicdata from '../../jsons/docdata.json'
 import Search from 'src/sections/prescribe/mims-scratch/mims-search-scratch';
 import testdata from 'src/jsons/mimsdb.json';
 const jsontoarraywithid = (data) => {
