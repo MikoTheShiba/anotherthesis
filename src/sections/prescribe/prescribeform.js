@@ -34,6 +34,7 @@ export const PrescribeForm = () => {
     email: ""
   })
   const [selectedMeds, setSelect] = useState([]);
+  const [testdata, setTestData] = useState([]);
   const [jtadata, setData] = useState(null);
   const [clinicdata, setClinic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -70,6 +71,7 @@ export const PrescribeForm = () => {
       const docstuff = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
       const data = await response.json();
       const docs = await docstuff.json();
+      setTestData(data);
       setClinic(docs);
       setData(jsontoarraywithid(data));
       setIsLoading(false);

@@ -13,14 +13,14 @@ const columns = [
 
 function SearchList({ filteredMeds, setSelect }) {
   //const filtered = filteredPersons.map( person =>  <Card key={person.id} person={person} />);
-  const [selectedItems, setSelectedItems] = React.useState([]);
-  React.useEffect(() => {
+  //const [selectedItems, setSelectedItems] = React.useState([]);
+  /*React.useEffect(() => {
     console.log(selectedItems);
-  });
+  });*/
   const handleSelectionChange = async (selection) => {
-    await setSelectedItems(selection);
+    //await setSelectedItems(selection);
     await setSelect(selection);
-    console.log("selection: " + selection);
+    //console.log("selection: " + selection);
   };
   return (
     <Box sx={{ height: 400, width: '100%' }}>
