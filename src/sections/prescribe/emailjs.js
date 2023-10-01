@@ -44,6 +44,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
     altgetter(genlist).map((x) => finalstring=finalstring+tablegenerator(x))
     return finalstring;
   }
+  console.log(clinicdata);
   let thebodieshitthefloor = `
   <center><h1><b>${clinicdata.clnNam}</b></h1></center>
   <center><h3><b>${clinicdata.adrnum + " "+ clinicdata.adrstreet + " " + clinicdata.adrcity + " " + clinicdata.adrcountry}</b></h3></center>
@@ -67,6 +68,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
           <h2>PRESCRIBED MEDS</h2>
           <table style="border: 1px solid black; border-collapse:collapse">
               <tr style="border: 1px solid black">
+                  <th style="border: 1px solid black">Brand</th>
                   <th style="border: 1px solid black">Illness</th>
                   <th style="border: 1px solid black">Generic Name</th>
                   <th style="border: 1px solid black">Dosage</th>
@@ -87,9 +89,9 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
               ${datable(selectedMeds)}
           </table>
           <div style="float:right">
-            <h4>${clinicdata.docNam}</h4>
-            <h4>${clinicdata.docLic}</h4>
-            <h4>${clinicdata.docPTR}</h4>
+            <h4>Doctor's Name: ${clinicdata.docNam}</h4>
+            <h4>License: ${clinicdata.docLic}</h4>
+            <h4>PTR: ${clinicdata.docPTR}</h4>
           </div>
       </div>
   </center>

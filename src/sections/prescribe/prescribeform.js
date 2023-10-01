@@ -68,7 +68,7 @@ export const PrescribeForm = () => {
   const fetchData = async () => {
     try {
       const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
-      const docstuff = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
+      const docstuff = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/docdata.json');
       const data = await response.json();
       const docs = await docstuff.json();
       setTestData(data);
@@ -175,7 +175,7 @@ export const PrescribeForm = () => {
               </Grid>
             </Grid>
           </Box>
-          <Search details={jtadata} setSelect={setSelect}/>
+          <Search details={jtadata} setSelect={setSelect} clinicdata={clinicdata}/>
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
