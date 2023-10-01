@@ -45,9 +45,9 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
     return finalstring;
   }
   let thebodieshitthefloor = `
-  <center><h1><b>${clinicdata.ClnNam}</b></h1></center>
-  <center><h3><b>${clinicdata.ClnAdr.adr + " "+ clinicdata.ClnAdr.adrstreet + " " + clinicdata.ClnAdr.adrcity + " " + clinicdata.ClnAdr.adrcountry}</b></h3></center>
-  <center><h3><b>${clinicdata.ClnCon}</b></h3></center>
+  <center><h1><b>${clinicdata.clnNam}</b></h1></center>
+  <center><h3><b>${clinicdata.adrnum + " "+ clinicdata.adrstreet + " " + clinicdata.adrcity + " " + clinicdata.adrcountry}</b></h3></center>
+  <center><h3><b>${clinicdata.clnCon}</b></h3></center>
   <div class="float-container">
       <div style="float:left">
         <h4>Patient Name: ${info.nam}</h4>
@@ -87,9 +87,9 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
               ${datable(selectedMeds)}
           </table>
           <div style="float:right">
-            <h4>${clinicdata.DocNam}</h4>
-            <h4>${clinicdata.DocLic}</h4>
-            <h4>${clinicdata.DocPTR}</h4>
+            <h4>${clinicdata.docNam}</h4>
+            <h4>${clinicdata.docLic}</h4>
+            <h4>${clinicdata.docPTR}</h4>
           </div>
       </div>
   </center>

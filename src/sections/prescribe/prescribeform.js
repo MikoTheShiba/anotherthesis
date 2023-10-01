@@ -36,6 +36,7 @@ export const PrescribeForm = () => {
   })
   const [selectedMeds, setSelect] = useState([]);
   const [jtadata, setData] = useState(null);
+  const [clinicdata, setClinic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const gengen = (medlist) => {
     let genlist = []
@@ -67,7 +68,10 @@ export const PrescribeForm = () => {
   const fetchData = async () => {
     try {
       const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
+      const docstuff = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/mimsdb.json');
       const data = await response.json();
+      const docs = await docstuff.json();
+      setClinic(docs);
       setData(jsontoarraywithid(data));
       setIsLoading(false);
     } catch (error) {
@@ -98,7 +102,6 @@ export const PrescribeForm = () => {
               >
                 <TextField
                   fullWidth
-                  helperText="Please specify the first name"
                   label="Patient Name"
                   name="nam"
                   onChange={handleChange}

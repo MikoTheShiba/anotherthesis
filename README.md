@@ -36,3 +36,9 @@
 **Sep 29, 1:08**
 >note to self, remove the disappearing medicine. Thank you.
 >also remember. Aria is your best friend. Do not forget that it's too useful of a tool
+
+**Oct 1, 3:30**
+>I AM NOT SLEEPY
+>ITS ALMOST JOEVER
+>ARIA YOU ARE A GODSENT
+>LAST TO MODIFY IS THE ACCOUNT SETUP AND WE'RE DONE

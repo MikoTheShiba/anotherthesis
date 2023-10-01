@@ -1,13 +1,11 @@
 {
-    "ClnNam": "Poleveda Elementary Clinic",
-    "ClnAdr": {
-        "adr":"3141 Poleveda Main",
-        "adrstreet":"Hydrogen Street",
-        "adrcity":"Mendel City",
-        "adrcountry":"Lung Nation"
-    },
-    "ClnCon": "+633141592653",
-    "DocNam": "Pamela Earl",
-    "DocLic": "92713270812",
-    "DocPTR": "77128754"
+    "clnNam": "Poleveda Elementary Clinic",
+    "adrnum":"3141 Poleveda Main",
+    "adrstreet":"Hydrogen Street",
+    "adrcity":"Mendel City",
+    "adrcountry":"Lung Nation",
+    "clnCon": "+633141592653",
+    "docNam": "Pamela Earl",
+    "docLic": "92713270812",
+    "docPTR": "77128754"
 }

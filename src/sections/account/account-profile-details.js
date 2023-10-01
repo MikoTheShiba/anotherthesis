@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -8,55 +8,60 @@ import {
   CardHeader,
   Divider,
   TextField,
-  Unstable_Grid2 as Grid
+  Unstable_Grid2 as Grid,
+  Typography
 } from '@mui/material';
 
-const states = [
-  {
-    value: 'alabama',
-    label: 'Alabama'
-  },
-  {
-    value: 'new-york',
-    label: 'New York'
-  },
-  {
-    value: 'san-francisco',
-    label: 'San Francisco'
-  },
-  {
-    value: 'los-angeles',
-    label: 'Los Angeles'
-  }
-];
-
 export const AccountProfileDetails = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [values, setValues] = useState({
-    clnNam: "Poleveda Elementary Clinic",
-    clnAdr: "3141 Poleveda Main, Hydrogen Lane, Mendel City, Lung Nation",
-    clnCon: "+633141592653",
-    docNam: "Pamela Earl",
-    docLic: "92713270812",
-    docPTR: "77128754"
+    clnNam: "",
+    adrnum:"",
+    adrstreet:"",
+    adrcity:"",
+    adrcountry:"",
+    clnCon: "",
+    docNam: "",
+    docLic: "",
+    docPTR: ""
   });
 
-  const handleChange = useCallback(
-    (event) => {
-      setValues((prevState) => ({
-        ...prevState,
-        [event.target.name]: event.target.value
-      }));
-    },
-    []
-  );
+  const handleChange = (e) => {
+    setValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
 
-  const handleSubmit = useCallback(
+
+  const handleSubmit =
     (event) => {
       event.preventDefault();
-    },
-    []
-  );
-
+      fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/docdata.json", {
+        method: "PUT",
+        body: JSON.stringify(values),                                                                                                                                                                                                                                                                               
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      console.log(values)
+    };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/docdata.json');
+      const data = await response.json();
+      setValues(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <form
       autoComplete="off"
@@ -80,7 +85,6 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  helperText="Please specify the first name"
                   label="Clinic Name"
                   name="clnNam"
                   onChange={handleChange}
@@ -94,11 +98,30 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Clinic Address"
-                  name="clnAdr"
+                  label="Clinic Contact"
+                  name="clnCon"
                   onChange={handleChange}
                   required
-                  value={values.clnAdr}
+                  value={values.clnCon}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={12}
+              >
+                <Typography>Address</Typography>
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  label="Numbers"
+                  name="adr"
+                  onChange={handleChange}
+                  required
+                  value={values.adrnum}
                 />
               </Grid>
               <Grid
@@ -107,11 +130,37 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Clinic Contact"
-                  name="clnCon"
+                  label="Street"
+                  name="adrstreet"
                   onChange={handleChange}
                   required
-                  value={values.clnCon}
+                  value={values.adrstreet}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  label="City"
+                  name="adrcity"
+                  onChange={handleChange}
+                  required
+                  value={values.adrcity}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  label="Country"
+                  name="adrcountry"
+                  onChange={handleChange}
+                  required
+                  value={values.adrcountry}
                 />
               </Grid>
               <Grid
@@ -158,7 +207,7 @@ export const AccountProfileDetails = () => {
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
-          <Button variant="contained">
+          <Button variant="contained" type="submit">
             Save details
           </Button>
         </CardActions>
