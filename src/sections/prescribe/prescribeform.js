@@ -88,8 +88,8 @@ export const PrescribeForm = () => {
     >
       <Card>
         <CardHeader
-          subheader="The information can be edited"
-          title="Profile"
+          subheader="Fill in the details and hit PRESCRIBE."
+          title="Prescribe"
         />
         <CardContent sx={{ pt: 0 }}>
           <Box sx={{ m: -1.5 }}>

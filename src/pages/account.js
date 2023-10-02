@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-//import { AccountProfile } from 'unusedsrc/sections/account/account-profile';
 import { AccountProfileDetails } from 'src/sections/account/account-profile-details';
 
 const Page = () => (
   <>
     <Head>
       <title>
-        Account | Devias Kit
+        Account
       </title>
     </Head>
     <Box

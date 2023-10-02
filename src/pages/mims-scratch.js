@@ -1,13 +1,7 @@
-import { useCallback, useMemo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { subDays, subHours } from 'date-fns';
-import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
-import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
-import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
-import { Box, Button, Container, Stack, SvgIcon, Typography } from '@mui/material';
-import { useSelection } from 'src/hooks/use-selection';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { applyPagination } from 'src/utils/apply-pagination';
 import testdata from '../jsons/mimsdb.json';
 import Search from 'src/sections/mims/mims-scratch/mims-search-scratch';
 
@@ -88,12 +82,7 @@ const listToResult_Binary = (data, list) => {
 }
 const tagbinder = searchTag(testdata);
 
-const jsontoarray = (data) => {
-  var arrr= [];
-  var listing = Object.keys(data)
-  listing.map((x) => arrr.push(data[x]))
-  return arrr
-}
+
 const jsontoarraywithid = (data) => {
     var arrr= [];
     var listing = Object.keys(data)

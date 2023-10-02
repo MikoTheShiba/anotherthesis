@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { Jsonupload } from 'src/sections/jsonsync/jsonupload';
-import { Jsondownload } from 'src/sections/jsonsync/jsondownload';
+import { Jsonupload } from 'unusedsrc/sections/jsonsync/jsonupload';
+import { Jsondownload } from 'unusedsrc/sections/jsonsync/jsondownload';
 
 const Page = () => (
   <>

@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import mimsdata from '../../jsons/mimsdb.json';
-import pathis from '../../jsons/pathis.json';
+import mimsdata from '../../../src/jsons/mimsdb.json';
+import pathis from '../../../src/jsons/pathis.json';
 import {
   Box,
   Button,
