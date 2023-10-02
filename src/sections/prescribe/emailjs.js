@@ -95,7 +95,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
                 ${dctable(selectedMeds)}
             </table>
             <h4>${info.ins}</h4>
-            <div>
+            <div style="text-align: right">
               <h4>Doctor's Name: ${clinicdata.docNam}</h4>
               <h4>License: ${clinicdata.docLic}</h4>
               <h4>PTR: ${clinicdata.docPTR}</h4>
