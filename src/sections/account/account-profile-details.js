@@ -37,14 +37,18 @@ export const AccountProfileDetails = () => {
   const handleSubmit =
     (event) => {
       event.preventDefault();
-      fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/docdata.json", {
-        method: "PUT",
-        body: JSON.stringify(values),                                                                                                                                                                                                                                                                               
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      console.log(values)
+      try {
+        fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/docdata.json", {
+          method: "PUT",
+          body: JSON.stringify(values),                                                                                                                                                                                                                                                                               
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        alert("Data Updated!")
+      } catch (error) {
+        console.log('Error:', error)
+      }
     };
   useEffect(() => {
     fetchData();
