@@ -113,5 +113,22 @@ const jsontoarray = (data) => {
   return arrr
 }
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+sections/emailjs.js
+//This was version 1.0. We made an update that filters it with the dosage as well
+
+  const altgetter = (genlist) => {
+    let alts = [];
+    genlist.map((x) => {let fdb = Object.entries(mimsdb).filter(([key,obj]) => obj.gen === x); let fin=alts.concat(fdb); alts=fin;})
+    return alts.map(([key, obj]) => key);
+  }
+    const datable = (medlist) => {
+    let genlist = []
+    let finalstring = ``;
+    medlist.map((x) => {let n = mimsdb[String(x)]['gen']; if(genlist.indexOf(n) == -1){genlist.push(n)}});
+    altgetter(genlist).map((x) => finalstring=finalstring+tablegenerator(x))
+    return finalstring;
+  }
 
 */

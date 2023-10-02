@@ -6,7 +6,7 @@ export const sendMail = (info, clinicdata, selectedMeds, mimsdb) => {
         SecureToken: "6e2cb0ca-b3c6-476a-bbb5-0607bbb86fda",
         To : info.email,
         From : "mikoforbusinesspurposes@gmail.com",
-        Subject : "asndadshudashouadshadshads",
+        Subject : "Automated Prescription for "+info.nam,
         Body : EmailFormat(info,clinicdata,selectedMeds, mimsdb)
       }).then(
         message => alert(message)
@@ -27,8 +27,14 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
     `
   }
   const altgetter = (genlist) => {
-    let alts = [];
-    genlist.map((x) => {let fdb = Object.entries(mimsdb).filter(([key,obj]) => obj.gen === x); let fin=alts.concat(fdb); alts=fin;})
+    let alts = []
+    console.log(genlist)
+    genlist[0].map((x) => {
+        let filterA = Object.entries(mimsdb).filter(([key,obj]) => obj.gen === x && genlist[1][genlist[0].indexOf(x)].includes(obj.dos));
+        let fin=alts.concat(filterA);
+        alts=fin;
+    })
+    console.log(alts)
     return alts.map(([key, obj]) => key);
   }
   const dctable = (medlist) => {
@@ -38,13 +44,24 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
     return finalstring;
   }
   const datable = (medlist) => {
-    let genlist = []
+    let genlist = [[],[]];
     let finalstring = ``;
-    medlist.map((x) => {let n = mimsdb[String(x)]['gen']; if(genlist.indexOf(n) == -1){genlist.push(n)}});
+    medlist.map((x) => {
+        let n = mimsdb[String(x)]['gen'];
+        let m = mimsdb[String(x)]['dos'];
+        if(genlist[0].indexOf(n) == -1){
+            genlist[0].push(n);
+            genlist[1].push([m]);
+        } else {
+              if(genlist[1][genlist[0].indexOf(n)].indexOf(m) == -1){
+                genlist[1][genlist[0].indexOf(n)].push(m);
+            }
+        }
+        
+    })
     altgetter(genlist).map((x) => finalstring=finalstring+tablegenerator(x))
     return finalstring;
   }
-  console.log(clinicdata);
   let thebodieshitthefloor = `
   <font color=black>
     <center><h1><b>${clinicdata.clnNam}</b></h1></center>
