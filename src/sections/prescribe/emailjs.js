@@ -46,55 +46,60 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
   }
   console.log(clinicdata);
   let thebodieshitthefloor = `
-  <center><h1><b>${clinicdata.clnNam}</b></h1></center>
-  <center><h3><b>${clinicdata.adrnum + " "+ clinicdata.adrstreet + " " + clinicdata.adrcity + " " + clinicdata.adrcountry}</b></h3></center>
-  <center><h3><b>${clinicdata.clnCon}</b></h3></center>
-  <div class="float-container">
-      <div style="float:left">
-        <h4>Patient Name: ${info.nam}</h4>
-        <h4>Date of Birth: ${info.dob}</h4>
-        <br><br><br><br>
-        <h1 style="float:left">RX</h1>
-      </div>
-      <div style="float:right">
-        <h4>Patient Age: ${info.age}</h4>
-        <h4>Date: ${info.dat}</h4>
-        <br><br><br><br><br><br>
-      </div>
-  </div>
-  <center>
-      <div>
-          <br><br><br><br><br><br><br><br><br><br><br><br>
-          <h2>PRESCRIBED MEDS</h2>
-          <table style="border: 1px solid black; border-collapse:collapse">
-              <tr style="border: 1px solid black">
-                  <th style="border: 1px solid black">Brand</th>
-                  <th style="border: 1px solid black">Illness</th>
-                  <th style="border: 1px solid black">Generic Name</th>
-                  <th style="border: 1px solid black">Dosage</th>
-                  <th style="border: 1px solid black">SRP</th>
-              </tr>
-              ${dctable(selectedMeds)}
-          </table>
-          <h4>${info.ins}</h4>
+  <font color=black>
+    <center><h1><b>${clinicdata.clnNam}</b></h1></center>
+    <center><h3><b>${clinicdata.adrnum + " "+ clinicdata.adrstreet + " " + clinicdata.adrcity + " " + clinicdata.adrcountry}</b></h3></center>
+    <center><h3><b>${clinicdata.clnCon}</b></h3></center>
+    <div class="float-container">
+        <div style="float:left">
+          <h4>Patient Name: ${info.nam}</h4>
+          <h4>Date of Birth: ${info.dob}</h4>
+          <br>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Rx_symbol.png" alt="RX" width="50" height="50">
+        </div>
+        <div style="float:right">
+          <h4>Patient Age: ${info.age}</h4>
+          <h4>Date: ${info.dat}</h4>
           <br><br>
-          <h2>ALTERNATIVES LIST</h2>
-          <table style="border: 1px solid black; border-collapse:collapse">
-              <tr style="border: 1px solid black">
-                  <th style="border: 1px solid black">Illness</th>
-                  <th style="border: 1px solid black">Generic Name</th>
-                  <th style="border: 1px solid black">Dosage</th>
-                  <th style="border: 1px solid black">SRP</th>
-              </tr>
-              ${datable(selectedMeds)}
-          </table>
-          <div style="float:right">
-            <h4>Doctor's Name: ${clinicdata.docNam}</h4>
-            <h4>License: ${clinicdata.docLic}</h4>
-            <h4>PTR: ${clinicdata.docPTR}</h4>
-          </div>
-      </div>
-  </center>
+        </div>
+    </div>
+    <center>
+        <div>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <h2>PRESCRIBED MEDS</h2>
+            <table style="border: 1px solid black; border-collapse:collapse">
+                <tr style="border: 1px solid black">
+                    <th style="border: 1px solid black">Brand</th>
+                    <th style="border: 1px solid black">Illness</th>
+                    <th style="border: 1px solid black">Generic Name</th>
+                    <th style="border: 1px solid black">Dosage</th>
+                    <th style="border: 1px solid black">SRP</th>
+                </tr>
+                ${dctable(selectedMeds)}
+            </table>
+            <h4>${info.ins}</h4>
+            <div>
+              <h4>Doctor's Name: ${clinicdata.docNam}</h4>
+              <h4>License: ${clinicdata.docLic}</h4>
+              <h4>PTR: ${clinicdata.docPTR}</h4>
+            </div>
+            <br><br><div style="width: 100%; height: 10px; background-color: grey"></div><br><br>
+            <h2>ALTERNATIVES LIST</h2>
+            <h4>The following information presents alternative brand names along with their corresponding suggested retail prices and its dosages in accordance with the prescribed medication</h4>
+            <table style="border: 1px solid black; border-collapse:collapse">
+                <tr style="border: 1px solid black">
+                    <th style="border: 1px solid black">Brand</th>
+                    <th style="border: 1px solid black">Illness</th>
+                    <th style="border: 1px solid black">Generic Name</th>
+                    <th style="border: 1px solid black">Dosage</th>
+                    <th style="border: 1px solid black">SRP</th>
+                </tr>
+                ${datable(selectedMeds)}
+            </table>
+            
+        </div>
+    </center>
+  </font>
   `
   return thebodieshitthefloor                                                                                                                                                                                                                                                                                                                                                                                                                               
 }
