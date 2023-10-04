@@ -9,7 +9,8 @@ const columns = [
   {field: 'age', headerName: 'Age'},
   {field: 'dat', headerName: 'Date'},
   {field: 'prs', headerName: 'Medlist'},
-  {field: 'email', headerName: 'email'}
+  {field: 'email', headerName: 'email'},
+  {field: 'doc', headerName: 'Doctor'}
 ]
 
 function SearchList({ filteredPats }) {

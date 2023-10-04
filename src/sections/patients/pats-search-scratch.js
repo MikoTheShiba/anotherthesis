@@ -19,6 +19,10 @@ function Search({ details }) {
         pat
         .dat
         .toLowerCase()
+        .includes(searchField.toLowerCase()) ||
+        pat
+        .doc
+        .toLowerCase()
         .includes(searchField.toLowerCase())
       );
     }

@@ -53,7 +53,7 @@ export const PrescribeForm = () => {
       event.preventDefault();
       fetch("https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json", {
         method: "POST",
-        body: JSON.stringify(Object.assign({}, values, { "prs":gengen(selectedMeds) })),
+        body: JSON.stringify(Object.assign({}, values, { "prs":gengen(selectedMeds), "doc":clinicdata.docNam })),
         headers: {
           "Content-Type": "application/json"
         }
