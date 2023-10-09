@@ -31,7 +31,7 @@ function Search({ details, setSelect }) {
   const handleChange = e => {
     setSearchField(e.target.value);
     if(e.target.value===""){
-      setSearchShow(false);
+      setSearchShow(true);
     }
     else {
       setSearchShow(true);
