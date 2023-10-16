@@ -1,19 +1,32 @@
 import { Email } from './smtp';
 import { SMTPClient } from "smtp-client";
 
-export const sendMail = (info, clinicdata, selectedMeds, mimsdb) => {
+export const sendMail = (info, clinicdata, selectedMeds, mimsdb, qtyList) => {
     Email.send({
         SecureToken: "6e2cb0ca-b3c6-476a-bbb5-0607bbb86fda",
         To : info.email,
         From : "mikoforbusinesspurposes@gmail.com",
         Subject : "Automated Prescription for "+info.nam,
-        Body : EmailFormat(info,clinicdata,selectedMeds, mimsdb)
+        Body : EmailFormat(info,clinicdata,selectedMeds, mimsdb, qtyList)
       }).then(
         message => alert(message)
       );
 }
 
-const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
+const EmailFormat = (info, clinicdata, selectedMeds, mimsdb, qtyList) => {
+  const tablegeneratorqty = (id) => {
+    let xd = String(id);
+    return `
+      <tr style="border: 1px solid black">
+        <td style="border: 1px solid black">${mimsdb[xd]['brd']}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['ill']}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['gen']}</td>
+        <td style="border: 1px solid black">${mimsdb[xd]['dos']}</td>
+        <td style="border: 1px solid black">${String(mimsdb[xd]['SRP'])}</td>
+        <td style="border: 1px solid black">${String(qtyList[xd])}</td>
+      </tr>
+    `
+  }
   const tablegenerator = (id) => {
     let xd = String(id);
     return `
@@ -38,7 +51,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
     return alts.map(([key, obj]) => key);
   }
   const dctable = (medlist) => {
-    let td = medlist.map(tablegenerator);
+    let td = medlist.map(tablegeneratorqty);
     let finalstring = ``;
     td.map((x) => finalstring=finalstring+x);
     return finalstring;
@@ -91,6 +104,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb) => {
                     <th style="border: 1px solid black">Generic Name</th>
                     <th style="border: 1px solid black">Dosage</th>
                     <th style="border: 1px solid black">SRP</th>
+                    <th style="border: 1px solid black">Quantity</th>
                 </tr>
                 ${dctable(selectedMeds)}
             </table>

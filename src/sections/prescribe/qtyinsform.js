@@ -12,19 +12,35 @@ import {
 } from '@mui/material';
 
 
-function Qtyinsform({selectedMeds, setQty, qtyList, insList, setIns}){
-    const renderField = (x) => {
+function Qtyinsform({selectedMeds, setQty, qtyList, insList, setIns, mimsdb}){
+    async function checkqtylist(x) {
+      console.log(qtyList);
+      if ((Object.keys(qtyList)).includes(x)){
+        return qtyList[x]
+      }
+      else{
+        qtyList[x]="";
+        return ""
+      }
+    }
+    const handleChangeQTY = (e) => {
+      setQty((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }))
+    }
+    return (<Grid container spacing={3}>{selectedMeds.map((x)=>(
             <Grid xs={12} md={6}>
                 <TextField
                   fullWidth
-                  label="Date of Birth"
+                  label={mimsdb[x]["brd"]+" quantity"}
                   name={x.toString()}
-                  onChange={handleChange}
-                  value=""
+                  onChange={handleChangeQTY}
+                  value={qtyList[x.toString()]}
                 />
             </Grid>
-    }
-    return (<Grid container spacing={3}>{selectedMeds.map(renderField)}</Grid>)
+          ))}
+    </Grid>)
 }
 
 export default Qtyinsform;

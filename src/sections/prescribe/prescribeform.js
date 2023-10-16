@@ -11,7 +11,7 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { CustomNumberInput as NumberInput } from 'src/components/CustomNumberInput';
-import { Qtyinsform } from './qtyinsform';
+import Qtyinsform from './qtyinsform';
 import { sendMail, sendMailClient } from "./emailjs";
 import Search from 'src/sections/prescribe/mims-scratch/mims-search-scratch';
 const jsontoarraywithid = (data) => {
@@ -38,7 +38,7 @@ export const PrescribeForm = () => {
   const [jtadata, setData] = useState(null);
   const [clinicdata, setClinic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [qtyList, setQty] = useState([]);
+  const [qtyList, setQty] = useState({});
   const [insList, setIns] = useState([]);
   const gengen = (medlist) => {
     let genlist = []
@@ -61,7 +61,7 @@ export const PrescribeForm = () => {
           "Content-Type": "application/json"
         }
       });
-      sendMail(values, clinicdata, selectedMeds, testdata);
+      sendMail(values, clinicdata, selectedMeds, testdata, qtyList);
     };
   
   useEffect(() => {
@@ -178,7 +178,7 @@ export const PrescribeForm = () => {
             </Grid>
           </Box>
           <Search details={jtadata} setSelect={setSelect} clinicdata={clinicdata}/>
-          <Qtyinsform selectedMeds={selectedMeds} setQty={setQty} qtyList={qtyList} setIns={setIns} insList={insList}/>
+          <Qtyinsform selectedMeds={selectedMeds} setQty={setQty} qtyList={qtyList} setIns={setIns} insList={insList} mimsdb={testdata}/>
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
