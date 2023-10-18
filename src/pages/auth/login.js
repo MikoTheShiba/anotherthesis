@@ -18,9 +18,64 @@ import {
 } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
+import SignInForm from "src/sections/login/signinform";                       
 
 const Page = () => {
   const router = useRouter();
+  const handleChange = (e) => {
+    setValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  return(
+    <Box
+        sx={{
+            backgroundColor: 'background.paper',
+            flex: '1 1 auto',
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center'
+        }}
+    >
+        <Box>
+            <div>
+                <Stack>
+                    <Typography variant="h4">
+                        Login
+                    </Typography>
+                    <Typography
+                        color="text.secondary"
+                        variant="body2"
+                    >
+                        Don&apos;t have an account?
+                        &nbsp;
+                      <Link
+                        component={NextLink}
+                        href="/auth/register"
+                        underline="hover"
+                        variant="subtitle2"
+                      >
+                        Register
+                      </Link>
+                    </Typography>
+                    <SignInForm router={router}/>
+                </Stack>
+            </div>
+        </Box>
+    </Box>
+  )
+};
+
+Page.getLayout = (page) => (
+  <AuthLayout>
+    {page}
+  </AuthLayout>
+);
+
+export default Page;
+
+/*const router = useRouter();
   const auth = useAuth();
   const [method, setMethod] = useState('email');
   const formik = useFormik({
@@ -215,13 +270,4 @@ const Page = () => {
         </Box>
       </Box>
     </>
-  );
-};
-
-Page.getLayout = (page) => (
-  <AuthLayout>
-    {page}
-  </AuthLayout>
-);
-
-export default Page;
+  );*/

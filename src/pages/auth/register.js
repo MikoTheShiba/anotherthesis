@@ -6,8 +6,81 @@ import * as Yup from 'yup';
 import { Box, Button, Link, Stack, TextField, Typography } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
+import SignUpForm from "src/sections/login/signupform";   
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDcsybvoUwVgL5XN7scx4PKY43ztA8Qa3o",
+  authDomain: "escription-24d8b.firebaseapp.com",
+  databaseURL: "https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "escription-24d8b",
+  storageBucket: "escription-24d8b.appspot.com",
+  messagingSenderId: "440703625057",
+  appId: "1:440703625057:web:9f49bebf39585001ba4720",
+  measurementId: "G-132X605FEE"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const fbauth = getAuth(app);
 
 const Page = () => {
+  const router = useRouter();
+  const handleChange = (e) => {
+    setValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  return(
+    <Box
+        sx={{
+            backgroundColor: 'background.paper',
+            flex: '1 1 auto',
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center'
+        }}
+    >
+        <Box>
+            <div>
+                <Stack>
+                    <Typography variant="h4">
+                        Register
+                    </Typography>
+                    <Typography
+                        color="text.secondary"
+                        variant="body2"
+                    > have an account?
+                        &nbsp;
+                      <Link
+                        component={NextLink}
+                        href="/auth/login"
+                        underline="hover"
+                        variant="subtitle2"
+                      >
+                        Log In
+                      </Link>
+                    </Typography>
+                    <SignUpForm router={router}/>
+                </Stack>
+            </div>
+        </Box>
+    </Box>
+  )
+};
+
+Page.getLayout = (page) => (
+  <AuthLayout>
+    {page}
+  </AuthLayout>
+);
+
+export default Page;
+
+/*const Page = () => {
   const router = useRouter();
   const auth = useAuth();
   const formik = useFormik({
@@ -162,3 +235,4 @@ Page.getLayout = (page) => (
 );
 
 export default Page;
+*/

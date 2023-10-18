@@ -1,2 +1,4 @@
+NOTE TO SELF:
+EDIT LOGIN.JS IN PAGES/AUTH
 
-note to self: you were working on qtyinsform. specifically, you need a way to parse the list in a non-organized fashion to properly construct a handlechange.
+THEN HOST IT
