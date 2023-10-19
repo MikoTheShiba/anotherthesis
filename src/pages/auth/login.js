@@ -19,7 +19,23 @@ import {
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 import SignInForm from "src/sections/login/signinform";                       
-
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+const oldauth = useAuth();
+const firebaseConfig = {
+    apiKey: "AIzaSyDcsybvoUwVgL5XN7scx4PKY43ztA8Qa3o",
+    authDomain: "escription-24d8b.firebaseapp.com",
+    databaseURL: "https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "escription-24d8b",
+    storageBucket: "escription-24d8b.appspot.com",
+    messagingSenderId: "440703625057",
+    appId: "1:440703625057:web:9f49bebf39585001ba4720",
+    measurementId: "G-132X605FEE"
+  };
+  
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const Page = () => {
   const router = useRouter();
   const handleChange = (e) => {
@@ -28,6 +44,21 @@ const Page = () => {
       [e.target.name]: e.target.value,
     }))
   }
+  const [values, setValues] = useState({
+        email:"",
+        pass:""
+    })
+    async function handleSubmit(e){
+        e.preventDefault();
+        console.log(values)
+        try{
+            await signInWithEmailAndPassword(auth, values.email, values.pass).then((userCredential) => {console.log(userCredential)});
+            await oldauth.skip();
+            router.push('/dashboard');
+        } catch(err) {
+            console.log(err)
+        }
+    }
   return(
     <Box
         sx={{
@@ -59,7 +90,35 @@ const Page = () => {
                         Register
                       </Link>
                     </Typography>
-                    <SignInForm router={router}/>
+                      <form onSubmit={handleSubmit}>
+                        <Stack spacing={3}>
+                            <TextField
+                                fullWidth
+                                type="email"
+                                name="email"
+                                label="Email Address"
+                                onChange={handleChange}
+                                value={values.email}
+                            />
+                            <TextField
+                                fullWidth
+                                type="pass"
+                                name="pass"
+                                label="Password"
+                                onChange={handleChange}
+                                value={values.pass}
+                            />
+                            <Button
+                              fullWidth
+                              size="large"
+                              sx={{ mt: 3 }}
+                              type="submit"
+                              variant="contained"
+                            >
+                              Continue
+                            </Button>
+                        </Stack>
+                    </form>
                 </Stack>
             </div>
         </Box>

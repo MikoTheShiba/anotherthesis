@@ -28,7 +28,7 @@ const firebaseConfig = {
   // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const SignUpForm = (router) => {
+const SignUpForm = (rpush) => {
     const handleChange = (e) => {
         setValues((prevState) => ({
           ...prevState,
@@ -46,7 +46,7 @@ const SignUpForm = (router) => {
         console.log(values)
         try{
             createUserWithEmailAndPassword(auth, values.email, values.pass).then((userCredential) => {console.log(userCredential)});
-            router.push('/')
+            rpush();
         } catch(err) {
             console.log(err)
         }

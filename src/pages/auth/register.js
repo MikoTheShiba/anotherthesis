@@ -1,15 +1,17 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useCallback, useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Box, Button, Link, Stack, TextField, Typography } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 import SignUpForm from "src/sections/login/signupform";   
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDcsybvoUwVgL5XN7scx4PKY43ztA8Qa3o",
@@ -24,7 +26,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const fbauth = getAuth(app);
+const auth = getAuth(app);
 
 const Page = () => {
   const router = useRouter();
@@ -33,6 +35,22 @@ const Page = () => {
       ...prevState,
       [e.target.name]: e.target.value,
     }))
+  }
+  const [values, setValues] = useState({
+    email:"",
+    pass:""
+  })
+  async function handleSubmit(e){
+    e.preventDefault();
+    console.log(values)
+    e.preventDefault();
+    console.log(values)
+    try{
+        await createUserWithEmailAndPassword(auth, values.email, values.pass).then((userCredential) => {console.log(userCredential)});
+        router.push('/');
+    } catch(err) {
+        console.log(err)
+    }
   }
   return(
     <Box
@@ -64,7 +82,35 @@ const Page = () => {
                         Log In
                       </Link>
                     </Typography>
-                    <SignUpForm router={router}/>
+                      <form onSubmit={handleSubmit}>
+                        <Stack spacing={3}>
+                            <TextField
+                                fullWidth
+                                type="email"
+                                name="email"
+                                label="Email Address"
+                                onChange={handleChange}
+                                value={values.email}
+                            />
+                            <TextField
+                                fullWidth
+                                type="pass"
+                                name="pass"
+                                label="Password"
+                                onChange={handleChange}
+                                value={values.pass}
+                            />
+                            <Button
+                              fullWidth
+                              size="large"
+                              sx={{ mt: 3 }}
+                              type="submit"
+                              variant="contained"
+                            >
+                              Continue
+                            </Button>
+                        </Stack>
+                    </form>
                 </Stack>
             </div>
         </Box>

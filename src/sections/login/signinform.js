@@ -44,7 +44,7 @@ const SignInForm = (router) => {
         console.log(values)
         try{
             signInWithEmailAndPassword(auth, values.email, values.pass).then((userCredential) => {console.log(userCredential)});
-            router.push('/')
+            router.push('/');
         } catch(err) {
             console.log(err)
         }
