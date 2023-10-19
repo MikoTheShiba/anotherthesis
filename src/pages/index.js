@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { subDays, subHours } from 'date-fns';
-import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
+import { Box, Container, Unstable_Grid2 as Grid, Typography } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { OverviewBudget } from 'src/sections/overview/overview-budget';
 import { OverviewLatestOrders } from 'src/sections/overview/overview-latest-orders';
@@ -27,7 +27,32 @@ const Page = () => (
         py: 8
       }}
     >
-      <Container maxWidth="xl">
+      <Typography variant="h3">
+        WELCOME TO PRESCRIPSYNC
+      </Typography>
+      <Typography variant="h6">
+        GO TO PRESCRIBE TO START OR HIT ACCOUNT TO CHANGE YOUR DETAILS
+      </Typography>
+      <br></br>
+      <Typography>This is still in Alpha, so several features are still in the middle of implementation. These include:</Typography>
+      <ul>
+        <li>Login, Registration, and Authentication</li>
+        <li>Account Specific Information</li>
+        <li>Patient Privacy</li>
+      </ul>
+    </Box>
+  </>
+);
+
+Page.getLayout = (page) => (
+  <DashboardLayout>
+    {page}
+  </DashboardLayout>
+);
+
+export default Page;
+
+/*<Container maxWidth="xl">
         <Grid
           container
           spacing={3}
@@ -218,15 +243,4 @@ const Page = () => (
             />
           </Grid>
         </Grid>
-      </Container>
-    </Box>
-  </>
-);
-
-Page.getLayout = (page) => (
-  <DashboardLayout>
-    {page}
-  </DashboardLayout>
-);
-
-export default Page;
+      </Container>*/
