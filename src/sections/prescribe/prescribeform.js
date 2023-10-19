@@ -177,8 +177,19 @@ export const PrescribeForm = () => {
               </Grid>
             </Grid>
           </Box>
-          <Search details={jtadata} setSelect={setSelect} clinicdata={clinicdata}/>
-          <Qtyinsform selectedMeds={selectedMeds} setQty={setQty} qtyList={qtyList} setIns={setIns} insList={insList} mimsdb={testdata}/>
+          <Search
+            details={jtadata}
+            setSelect={setSelect}
+            clinicdata={clinicdata}
+          />
+          <Qtyinsform
+            selectedMeds={selectedMeds}
+            setQty={setQty}
+            qtyList={qtyList}
+            setIns={setIns}
+            insList={insList}
+            mimsdb={testdata}
+          />
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>

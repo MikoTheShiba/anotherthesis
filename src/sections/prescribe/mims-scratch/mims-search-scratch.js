@@ -42,7 +42,10 @@ function Search({ details, setSelect }) {
   	if (searchShow) {
 	  	return (
 	  		<Scroll>
-	  			<SearchList filteredMeds={filteredMeds} setSelect={setSelect} />
+	  			<SearchList
+            filteredMeds={filteredMeds}
+            setSelect={setSelect}
+          />
 	  		</Scroll>
 	  	);
 	  }

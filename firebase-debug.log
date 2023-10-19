@@ -1,0 +1,132 @@
+[debug] [2023-10-19T03:35:17.164Z] ----------------------------------------------------------------------
+[debug] [2023-10-19T03:35:17.168Z] Command:       /usr/bin/node-18 /usr/local/bin/firebase deploy
+[debug] [2023-10-19T03:35:17.168Z] CLI Version:   12.7.0
+[debug] [2023-10-19T03:35:17.169Z] Platform:      linux
+[debug] [2023-10-19T03:35:17.169Z] Node Version:  v18.18.0
+[debug] [2023-10-19T03:35:17.170Z] Time:          Thu Oct 19 2023 11:35:17 GMT+0800 (Philippine Standard Time)
+[debug] [2023-10-19T03:35:17.170Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-19T03:35:17.286Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-19T03:35:17.287Z] > authorizing via signed-in user (mikoangeles2001@gmail.com)
+[debug] [2023-10-19T03:35:17.287Z] [iam] checking project escription-24d8b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-10-19T03:35:17.291Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions [none]
+[debug] [2023-10-19T03:35:17.291Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions x-goog-quota-user=projects/escription-24d8b
+[debug] [2023-10-19T03:35:17.292Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-19T03:35:18.236Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions 200
+[debug] [2023-10-19T03:35:18.237Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-19T03:35:18.239Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/escription-24d8b [none]
+[debug] [2023-10-19T03:35:19.327Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/escription-24d8b 200
+[debug] [2023-10-19T03:35:19.328Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/escription-24d8b {"projectId":"escription-24d8b","projectNumber":"440703625057","displayName":"ESCRIPTION","name":"projects/escription-24d8b","resources":{"hostingSite":"escription-24d8b","realtimeDatabaseInstance":"escription-24d8b-default-rtdb"},"state":"ACTIVE","etag":"1_87d24541-c5bb-4ceb-b1b7-22e5e224cf28"}
+[debug] [2023-10-19T03:35:22.514Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/escription-24d8b/sites pageToken=&pageSize=10
+[debug] [2023-10-19T03:35:23.410Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/escription-24d8b/sites 200
+[debug] [2023-10-19T03:35:23.410Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/escription-24d8b/sites {"sites":[{"name":"projects/escription-24d8b/sites/escription-24d8b","defaultUrl":"https://escription-24d8b.web.app","appId":"1:440703625057:web:9f49bebf39585001ba4720","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-19T03:35:23.412Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:440703625057:web:9f49bebf39585001ba4720/config [none]
+[debug] [2023-10-19T03:35:24.271Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:440703625057:web:9f49bebf39585001ba4720/config 200
+[debug] [2023-10-19T03:35:24.271Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:440703625057:web:9f49bebf39585001ba4720/config {"projectId":"escription-24d8b","appId":"1:440703625057:web:9f49bebf39585001ba4720","databaseURL":"https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"escription-24d8b.appspot.com","apiKey":"AIzaSyDcsybvoUwVgL5XN7scx4PKY43ztA8Qa3o","authDomain":"escription-24d8b.firebaseapp.com","messagingSenderId":"440703625057","measurementId":"G-132X605FEE"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] 
+Failed to compile.
+
+[info] 
+./src/guards/auth-guard.js
+42:5  Warning: React Hook useEffect has missing dependencies: 'isAuthenticated' and 'router'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/pages/_document.js
+42:5  Warning: Using `<link />` outside of `<Head>` will disable automatic font optimization. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+46:5  Warning: Using `<link />` outside of `<Head>` will disable automatic font optimization. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+50:5  Warning: Using `<link />` outside of `<Head>` will disable automatic font optimization. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+./src/sections/account/account-profile-details.js
+214:39  Warning: Prop `type` must be placed on a new line  react/jsx-max-props-per-line
+
+./src/sections/prescribe/mims-scratch/mims-search-scratch.js
+45:47  Warning: Prop `setSelect` must be placed on a new line  react/jsx-max-props-per-line
+
+./src/sections/prescribe/prescribeform.js
+180:37  Warning: Prop `setSelect` must be placed on a new line  react/jsx-max-props-per-line
+181:51  Warning: Prop `setQty` must be placed on a new line  react/jsx-max-props-per-line
+185:39  Warning: Prop `type` must be placed on a new line  react/jsx-max-props-per-line
+
+./src/sections/prescribe/qtyinsform.js
+32:29  Warning: Prop `spacing` must be placed on a new line  react/jsx-max-props-per-line
+33:13  Error: Missing "key" prop for element in iterator  react/jsx-key
+33:27  Warning: Prop `md` must be placed on a new line  react/jsx-max-props-per-line
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[debug] [2023-10-19T03:35:35.639Z] Error: ENOENT: no such file or directory, open '/home/mikotheshiba/sendhelp/anotherthesis/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-10-19T03:38:52.034Z] ----------------------------------------------------------------------
+[debug] [2023-10-19T03:38:52.040Z] Command:       /usr/bin/node-18 /usr/local/bin/firebase deploy
+[debug] [2023-10-19T03:38:52.041Z] CLI Version:   12.7.0
+[debug] [2023-10-19T03:38:52.042Z] Platform:      linux
+[debug] [2023-10-19T03:38:52.042Z] Node Version:  v18.18.0
+[debug] [2023-10-19T03:38:52.084Z] Time:          Thu Oct 19 2023 11:38:52 GMT+0800 (Philippine Standard Time)
+[debug] [2023-10-19T03:38:52.085Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-19T03:38:52.251Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-19T03:38:52.252Z] > authorizing via signed-in user (mikoangeles2001@gmail.com)
+[debug] [2023-10-19T03:38:52.253Z] [iam] checking project escription-24d8b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-10-19T03:38:52.257Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions [none]
+[debug] [2023-10-19T03:38:52.257Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions x-goog-quota-user=projects/escription-24d8b
+[debug] [2023-10-19T03:38:52.258Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-19T03:38:53.240Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions 200
+[debug] [2023-10-19T03:38:53.241Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/escription-24d8b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-19T03:38:53.243Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/escription-24d8b [none]
+[debug] [2023-10-19T03:38:53.675Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/escription-24d8b 200
+[debug] [2023-10-19T03:38:53.676Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/escription-24d8b {"projectId":"escription-24d8b","projectNumber":"440703625057","displayName":"ESCRIPTION","name":"projects/escription-24d8b","resources":{"hostingSite":"escription-24d8b","realtimeDatabaseInstance":"escription-24d8b-default-rtdb"},"state":"ACTIVE","etag":"1_87d24541-c5bb-4ceb-b1b7-22e5e224cf28"}
+[debug] [2023-10-19T03:39:00.188Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/escription-24d8b/sites pageToken=&pageSize=10
+[debug] [2023-10-19T03:39:01.032Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/escription-24d8b/sites 200
+[debug] [2023-10-19T03:39:01.033Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/escription-24d8b/sites {"sites":[{"name":"projects/escription-24d8b/sites/escription-24d8b","defaultUrl":"https://escription-24d8b.web.app","appId":"1:440703625057:web:9f49bebf39585001ba4720","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-19T03:39:01.035Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:440703625057:web:9f49bebf39585001ba4720/config [none]
+[debug] [2023-10-19T03:39:02.230Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:440703625057:web:9f49bebf39585001ba4720/config 200
+[debug] [2023-10-19T03:39:02.231Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:440703625057:web:9f49bebf39585001ba4720/config {"projectId":"escription-24d8b","appId":"1:440703625057:web:9f49bebf39585001ba4720","databaseURL":"https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"escription-24d8b.appspot.com","apiKey":"AIzaSyDcsybvoUwVgL5XN7scx4PKY43ztA8Qa3o","authDomain":"escription-24d8b.firebaseapp.com","messagingSenderId":"440703625057","measurementId":"G-132X605FEE"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] 
+Failed to compile.
+
+[info] 
+./src/guards/auth-guard.js
+42:5  Warning: React Hook useEffect has missing dependencies: 'isAuthenticated' and 'router'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/pages/_document.js
+42:5  Warning: Using `<link />` outside of `<Head>` will disable automatic font optimization. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+46:5  Warning: Using `<link />` outside of `<Head>` will disable automatic font optimization. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+50:5  Warning: Using `<link />` outside of `<Head>` will disable automatic font optimization. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+./src/sections/prescribe/prescribeform.js
+196:39  Warning: Prop `type` must be placed on a new line  react/jsx-max-props-per-line
+
+./src/sections/prescribe/qtyinsform.js
+32:29  Warning: Prop `spacing` must be placed on a new line  react/jsx-max-props-per-line
+33:13  Error: Missing "key" prop for element in iterator  react/jsx-key
+33:27  Warning: Prop `md` must be placed on a new line  react/jsx-max-props-per-line
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[debug] [2023-10-19T03:39:20.374Z] Error: ENOENT: no such file or directory, open '/home/mikotheshiba/sendhelp/anotherthesis/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
