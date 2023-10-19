@@ -34,12 +34,7 @@ const Page = () => (
         GO TO PRESCRIBE TO START OR HIT ACCOUNT TO CHANGE YOUR DETAILS
       </Typography>
       <br></br>
-      <Typography>This is still in Alpha, so several features are still in the middle of implementation. These include:</Typography>
-      <ul>
-        <li>Login, Registration, and Authentication</li>
-        <li>Account Specific Information</li>
-        <li>Patient Privacy</li>
-      </ul>
+      <Typography>This is still in Alpha, so several features are still in the middle of implementation.</Typography>
     </Box>
   </>
 );
@@ -52,6 +47,12 @@ Page.getLayout = (page) => (
 
 export default Page;
 
+
+/*      <ul>
+        <li>Login, Registration, and Authentication</li>
+        <li>Account Specific Information</li>
+        <li>Patient Privacy</li>
+      </ul>*/
 /*<Container maxWidth="xl">
         <Grid
           container
