@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Scroll from './pats-scroll';
 import SearchList from './pats-searchlist';
+import { binarykey } from 'src/binarysearch';
 
 function Search({ details }) {
   const [searchField, setSearchField] = useState("");
   const [searchShow, setSearchShow] = useState(true);
-  const filteredPats = details.filter(
+  //this was the old details.filter
+  /*const filteredPats = details.filter(
     pat => {
       return (
         pat
@@ -26,8 +28,9 @@ function Search({ details }) {
         .includes(searchField.toLowerCase())
       );
     }
-  );
-
+  );*/
+  const filteredPats=binarykey(details, searchField, ["nam"]);
+  console.log(filteredPats);
   const handleChange = e => {
     setSearchField(e.target.value);
     if(e.target.value===""){

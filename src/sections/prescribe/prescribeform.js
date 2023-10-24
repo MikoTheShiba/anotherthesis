@@ -178,7 +178,8 @@ export const PrescribeForm = () => {
             </Grid>
           </Box>
           <Search
-            details={jtadata}
+            //revert this back to jtadata once this fiasco is over
+            details={testdata}
             setSelect={setSelect}
             clinicdata={clinicdata}
           />

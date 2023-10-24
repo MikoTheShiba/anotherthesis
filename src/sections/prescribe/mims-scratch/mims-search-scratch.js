@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Scroll from './mims-scroll';
 import SearchList from './mims-searchlist';
+import { binarykey } from 'src/binarysearch';
 
 function Search({ details, setSelect }) {
   const [searchField, setSearchField] = useState("");
   const [searchShow, setSearchShow] = useState(true);
-  const filteredMeds = details.filter(
+  //friendship ended with filter. binarySearch() is now my best friend
+  /*const filteredMeds = details.filter(
     med => {
       return (
         med
@@ -26,8 +28,8 @@ function Search({ details, setSelect }) {
         .includes(searchField.toLowerCase())
       );
     }
-  );
-
+  );*/
+  const filteredMeds = binarykey(details, searchField, ["brd", "gen", "ill"])
   const handleChange = e => {
     setSearchField(e.target.value);
     if(e.target.value===""){

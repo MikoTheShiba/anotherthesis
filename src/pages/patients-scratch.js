@@ -17,6 +17,7 @@ const jsontoarraywithidnoparseint = (data) => {
     return arrr
   }
 const Page = () => {
+  const [testdata, setTestData] = useState(null);
   const [jtadata, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -26,6 +27,7 @@ const Page = () => {
     try {
       const response = await fetch('https://escription-24d8b-default-rtdb.asia-southeast1.firebasedatabase.app/pathis.json');
       const data = await response.json();
+      setTestData(data)
       setData(jsontoarraywithidnoparseint(data));
       setIsLoading(false);
     } catch (error) {
@@ -60,7 +62,7 @@ const Page = () => {
                             <Typography variant="h4">
                                 MIMS DATABASE
                             </Typography>
-                            <Search details={jtadata} />
+                            <Search details={testdata} />
                         </Stack>
                     </Stack>
                 </Stack>
@@ -69,7 +71,7 @@ const Page = () => {
     </>
   )
 };
-
+//note to self, replace testdata with jtadata when reverting
 Page.getLayout = (page) => (
   <DashboardLayout>
     {page}
