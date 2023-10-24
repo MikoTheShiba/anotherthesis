@@ -63,7 +63,7 @@ function Search({ details, setSelect }) {
 				<input
 					className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
 					type = "search"
-					placeholder = "Search People"
+					placeholder = "Search Meds"
 					onChange = {handleChange}
 				/>
 			</div>

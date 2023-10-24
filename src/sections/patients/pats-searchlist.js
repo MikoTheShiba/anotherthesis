@@ -4,13 +4,13 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  {field: 'nam', headerName: 'Name'},
+  {field: 'nam', headerName: 'Name', width: 130},
   {field: 'dob', headerName: 'Birthday'},
   {field: 'age', headerName: 'Age'},
   {field: 'dat', headerName: 'Date'},
-  {field: 'prs', headerName: 'Medlist'},
-  {field: 'email', headerName: 'email'},
-  {field: 'doc', headerName: 'Doctor'}
+  {field: 'prs', headerName: 'Medlist', width: 200},
+  {field: 'email', headerName: 'email', width: 200},
+  {field: 'doc', headerName: 'Doctor', width: 130}
 ]
 
 function SearchList({ filteredPats }) {

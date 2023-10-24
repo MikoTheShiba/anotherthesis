@@ -44,16 +44,19 @@ if (namres!=-1) return namdata[Object.keys(namdata).sort()[namres]]
 else return [];
 }
 export const binarykey = (data, tgt, tgk) => {
-var fin = {}
-var fullcheck = tgk.map((x)=>{return keytaker(data, tgt, x)})
-const combinedList = fullcheck.reduce((result, sublist) => {
-    sublist.forEach(item => {
-    if (!result.includes(item)) {
-        result.push(item);
+    if (tgt==""){
+        return jsontoarraywithidnoparseint(data);
     }
-    });
-    return result;
-}, []);
-combinedList.map((x)=>fin[x]=data[x])
-return jsontoarraywithidnoparseint(fin)
+    var fin = {}
+    var fullcheck = tgk.map((x)=>{return keytaker(data, tgt, x)})
+    const combinedList = fullcheck.reduce((result, sublist) => {
+        sublist.forEach(item => {
+        if (!result.includes(item)) {
+            result.push(item);
+        }
+        });
+        return result;
+    }, []);
+    combinedList.map((x)=>fin[x]=data[x])
+    return jsontoarraywithidnoparseint(fin)
 }

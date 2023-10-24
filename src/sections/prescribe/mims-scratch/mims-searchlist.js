@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  {field: 'ill', headerName: 'Illness'},
-  {field: 'gen', headerName: 'Generic Name'},
-  {field: 'brd', headerName: 'Brand'},
+  {field: 'ill', headerName: 'Illness', width: 150},
+  {field: 'gen', headerName: 'Generic Name', width: 200},
+  {field: 'brd', headerName: 'Brand', width: 200},
   {field: 'dos', headerName: 'Dosage'},
   {field: 'SRP', headerName: 'SRP'}
 ]

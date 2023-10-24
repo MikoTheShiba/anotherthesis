@@ -45,12 +45,8 @@ const Page = () => {
         </Head>
         <Box
         component="main"
-        sx={{
-          flexGrow: 1,
-          py: 8
-        }}
         >
-            <Container maxWidth="x1">
+            <Container>
                 <Stack spacing={3}>
                     <Stack
                         direction="row"
