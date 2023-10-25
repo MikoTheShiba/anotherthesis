@@ -1,19 +1,19 @@
 import { Email } from './smtp';
 import { SMTPClient } from "smtp-client";
 
-export const sendMail = (info, clinicdata, selectedMeds, mimsdb, qtyList) => {
+export const sendMail = (info, clinicdata, selectedMeds, mimsdb, qtyList, insList) => {
     Email.send({
         SecureToken: "6e2cb0ca-b3c6-476a-bbb5-0607bbb86fda",
         To : info.email,
         From : "mikoforbusinesspurposes@gmail.com",
         Subject : "Automated Prescription for "+info.nam,
-        Body : EmailFormat(info,clinicdata,selectedMeds, mimsdb, qtyList)
+        Body : EmailFormat(info,clinicdata,selectedMeds, mimsdb, qtyList, insList)
       }).then(
         message => alert(message)
       );
 }
 
-const EmailFormat = (info, clinicdata, selectedMeds, mimsdb, qtyList) => {
+const EmailFormat = (info, clinicdata, selectedMeds, mimsdb, qtyList, insList) => {
   const tablegeneratorqty = (id) => {
     let xd = String(id);
     return `
@@ -24,6 +24,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb, qtyList) => {
         <td style="border: 1px solid black">${mimsdb[xd]['dos']}</td>
         <td style="border: 1px solid black">${String(mimsdb[xd]['SRP'])}</td>
         <td style="border: 1px solid black">${String(qtyList[xd])}</td>
+        <td style="border: 1px solid black">${String(insList[xd])}</td>
       </tr>
     `
   }
@@ -105,6 +106,7 @@ const EmailFormat = (info, clinicdata, selectedMeds, mimsdb, qtyList) => {
                     <th style="border: 1px solid black">Dosage</th>
                     <th style="border: 1px solid black">SRP</th>
                     <th style="border: 1px solid black">Quantity</th>
+                    <th style="border: 1px solid black">Instructions</th>
                 </tr>
                 ${dctable(selectedMeds)}
             </table>

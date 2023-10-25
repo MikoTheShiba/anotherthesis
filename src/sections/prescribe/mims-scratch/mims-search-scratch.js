@@ -3,7 +3,7 @@ import Scroll from './mims-scroll';
 import SearchList from './mims-searchlist';
 import { binarykey } from 'src/binarysearch';
 
-function Search({ details, setSelect }) {
+function Search({ details, setSelect, selectedMeds}) {
   const [searchField, setSearchField] = useState("");
   const [searchShow, setSearchShow] = useState(true);
   //friendship ended with filter. binarySearch() is now my best friend
@@ -47,6 +47,7 @@ function Search({ details, setSelect }) {
 	  			<SearchList
             filteredMeds={filteredMeds}
             setSelect={setSelect}
+            selectedMeds={selectedMeds}
           />
 	  		</Scroll>
 	  	);

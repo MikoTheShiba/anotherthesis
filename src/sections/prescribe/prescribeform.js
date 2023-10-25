@@ -61,7 +61,7 @@ export const PrescribeForm = () => {
           "Content-Type": "application/json"
         }
       });
-      sendMail(values, clinicdata, selectedMeds, testdata, qtyList);
+      sendMail(values, clinicdata, selectedMeds, testdata, qtyList, insList);
     };
   
   useEffect(() => {
@@ -181,6 +181,7 @@ export const PrescribeForm = () => {
             //revert this back to jtadata once this fiasco is over
             details={testdata}
             setSelect={setSelect}
+            selectedMeds={selectedMeds}
             clinicdata={clinicdata}
           />
           <Qtyinsform

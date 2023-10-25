@@ -47,6 +47,7 @@ export const binarykey = (data, tgt, tgk) => {
     if (tgt==""){
         return jsontoarraywithidnoparseint(data);
     }
+    var jtadata = jsontoarraywithidnoparseint(data);
     var fin = {}
     var fullcheck = tgk.map((x)=>{return keytaker(data, tgt, x)})
     const combinedList = fullcheck.reduce((result, sublist) => {
@@ -57,6 +58,6 @@ export const binarykey = (data, tgt, tgk) => {
         });
         return result;
     }, []);
-    combinedList.map((x)=>fin[x]=data[x])
-    return jsontoarraywithidnoparseint(fin)
+    combinedList.map((x)=>fin[x]=jtadata[x]);
+    return jsontoarraywithidnoparseint(fin);
 }

@@ -11,15 +11,21 @@ const columns = [
   {field: 'SRP', headerName: 'SRP'}
 ]
 
-function SearchList({ filteredMeds, setSelect }) {
+function SearchList({ filteredMeds, setSelect, selectedMeds }) {
   //const filtered = filteredPersons.map( person =>  <Card key={person.id} person={person} />);
   //const [selectedItems, setSelectedItems] = React.useState([]);
   /*React.useEffect(() => {
     console.log(selectedItems);
   });*/
   const handleSelectionChange = async (selection) => {
+    console.log(selection)
     //await setSelectedItems(selection);
-    await setSelect(selection);
+    if (selectedMeds=[]){
+      await setSelect(selection);
+    }
+    else{
+      await setSelect(selectedMeds.concat(selection))
+    }
     //console.log("selection: " + selection);
   };
   return (
