@@ -17,15 +17,21 @@ function SearchList({ filteredMeds, setSelect, selectedMeds, displayedMeds, setD
   /*React.useEffect(() => {
     console.log(selectedItems);
   });*/
+  const selectionPush = (sel) => {
+    setSelect(current =>[...new Set([...current, ...sel])])
+  }
   const handleSelectionChange = async (selection) => {
-    //await setSelectedItems(selection);
+    //we gon push it instead
+    await selectionPush(selection);
+    /*//await setSelectedItems(selection);
     if (selectedMeds=[]){
-      await setSelect(selection);
+      //await setSelect(selection);
+      await setSelect(current => [...current, ])
     }
     else{
-      await setSelect(selectedMeds.concat(selection))
+      //await setSelect(selectedMeds.concat(selection))
     }
-    //console.log("selection: " + selection);
+    //console.log("selection: " + selection);*/
   };
   return (
     <Box sx={{ height: 400, width: '100%' }}>
