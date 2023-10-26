@@ -3,7 +3,7 @@ import Scroll from './mims-scroll';
 import SearchList from './mims-searchlist';
 import { binarykey } from 'src/binarysearch';
 
-function Search({ details, setSelect, selectedMeds}) {
+function Search({ details, setSelect, selectedMeds, displayedMeds, setDisplay}) {
   const [searchField, setSearchField] = useState("");
   const [searchShow, setSearchShow] = useState(true);
   //friendship ended with filter. binarySearch() is now my best friend
@@ -30,7 +30,10 @@ function Search({ details, setSelect, selectedMeds}) {
     }
   );*/
   const filteredMeds = binarykey(details, searchField, ["brd", "gen", "ill"])
-  const handleChange = e => {
+  const handleChange = async (e) => {
+    var quicksave = [];
+    await selectedMeds.map((x) => quicksave.push(x));
+    await setDisplay(quicksave);
     setSearchField(e.target.value);
     if(e.target.value===""){
       setSearchShow(true);
@@ -38,6 +41,7 @@ function Search({ details, setSelect, selectedMeds}) {
     else {
       setSearchShow(true);
     }
+    console.log(displayedMeds)
   };
 
   function searchList() {
@@ -48,6 +52,8 @@ function Search({ details, setSelect, selectedMeds}) {
             filteredMeds={filteredMeds}
             setSelect={setSelect}
             selectedMeds={selectedMeds}
+            displayedMeds={displayedMeds}
+            setDisplay={setDisplay}
           />
 	  		</Scroll>
 	  	);

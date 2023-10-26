@@ -34,6 +34,7 @@ export const PrescribeForm = () => {
     email: ""
   })
   const [selectedMeds, setSelect] = useState([]);
+  const [displayedMeds, setDisplay] = useState([]);
   const [testdata, setTestData] = useState([]);
   const [jtadata, setData] = useState(null);
   const [clinicdata, setClinic] = useState(null);
@@ -182,7 +183,8 @@ export const PrescribeForm = () => {
             details={testdata}
             setSelect={setSelect}
             selectedMeds={selectedMeds}
-            clinicdata={clinicdata}
+            displayedMeds={displayedMeds}
+            setDisplay={setDisplay}
           />
           <Qtyinsform
             selectedMeds={selectedMeds}
